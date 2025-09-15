@@ -108,7 +108,7 @@
   transition: box-shadow 0.3s, transform 0.3s cubic-bezier(0.4,0,0.2,1);
  }
  .profile-pic:hover {
-  box-shadow: 0 4px 24px rgba(255,136,0,0.25);
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.18), 0 0 16px 8px rgba(255,255,255,0.35), 0 0 32px 16px rgba(255,255,255,0.45);
   transform: scale(1.18);
  }
  .info-subtitle {
