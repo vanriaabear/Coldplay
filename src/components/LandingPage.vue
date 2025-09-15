@@ -21,25 +21,45 @@
           <a href="https://web.facebook.com/coldplay" target="_blank" rel="noopener noreferrer">
             <img src="/images/pfp.jpg" alt="Profile 1" class="profile-pic" />
           </a>
-          <a href="https://web.facebook.com/coldplay" target="_blank" rel="noopener noreferrer" class="profile-btn">FACEBOOK</a>
+          <a href="https://web.facebook.com/coldplay" target="_blank" rel="noopener noreferrer" class="profile-btn">
+            <span style="display: flex; align-items: center; justify-content: center;">
+              <img src="/images/fblogoo.png" alt="Facebook Logo" class="profile-logo" />
+              FACEBOOK
+            </span>
+          </a>
         </div>
         <div class="profile-item">
           <a href="https://www.instagram.com/coldplay/" target="_blank" rel="noopener noreferrer">
             <img src="/images/pfp.jpg" alt="Profile 2" class="profile-pic" />
           </a>
-          <a href="https://www.instagram.com/coldplay/" target="_blank" rel="noopener noreferrer" class="profile-btn">INSTAGRAM</a>
+          <a href="https://www.instagram.com/coldplay/" target="_blank" rel="noopener noreferrer" class="profile-btn">
+            <span style="display: flex; align-items: center; justify-content: center;">
+              <img src="/images/iglogoo.png" alt="Instagram Logo" class="profile-logo" />
+              INSTAGRAM
+            </span>
+          </a>
         </div>
         <div class="profile-item">
           <a href="https://www.youtube.com/channel/UCDPM_n1atn2ijUwHd0NNRQw" target="_blank" rel="noopener noreferrer">
             <img src="/images/pfp.jpg" alt="Profile 3" class="profile-pic" />
           </a>
-          <a href="https://www.youtube.com/channel/UCDPM_n1atn2ijUwHd0NNRQw" target="_blank" rel="noopener noreferrer" class="profile-btn">YOUTUBE</a>
+          <a href="https://www.youtube.com/channel/UCDPM_n1atn2ijUwHd0NNRQw" target="_blank" rel="noopener noreferrer" class="profile-btn">
+            <span style="display: flex; align-items: center; justify-content: center;">
+              <img src="/images/ytlogoo.png" alt="YouTube Logo" class="profile-logo" />
+              YOUTUBE
+            </span>
+          </a>
         </div>
         <div class="profile-item">
           <a href="https://open.spotify.com/artist/4gzpq5DPGxSnKTe4SA8HAU" target="_blank" rel="noopener noreferrer">
             <img src="/images/pfp.jpg" alt="Profile 4" class="profile-pic" />
           </a>
-          <a href="https://open.spotify.com/artist/4gzpq5DPGxSnKTe4SA8HAU" target="_blank" rel="noopener noreferrer" class="profile-btn">SPOTIFY</a>
+          <a href="https://open.spotify.com/artist/4gzpq5DPGxSnKTe4SA8HAU" target="_blank" rel="noopener noreferrer" class="profile-btn">
+            <span style="display: flex; align-items: center; justify-content: center;">
+              <img src="/images/spotifylogoo.png" alt="Spotify Logo" class="profile-logo" />
+              SPOTIFY
+            </span>
+          </a>
         </div>
       </div>
       
@@ -49,8 +69,17 @@
 </template>
 
 <style scoped>
+ .profile-logo {
+   width: 20px;
+   height: 20px;
+   object-fit: contain;
+   vertical-align: middle;
+   margin-right: 8px;
+   margin-bottom: 2px;
+ }
  .profile-btn {
-   display: inline-block;
+  display: inline-flex;
+  align-items: center;
    margin-top: 8px;
    padding: 6px 18px;
    background: rgba(255,136,0,0.18);
