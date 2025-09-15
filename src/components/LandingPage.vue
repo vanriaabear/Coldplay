@@ -14,9 +14,9 @@
   </footer>
   <section class="info-section">
     <div class="info-content">
-  <h2>Welcome aboard the Coldplay fan hub!</h2>
-  <div class="info-subtitle">Check out their official pages on these platforms:</div>
-      <div class="profile-grid">
+  <h2 style="text-align:center; width:100%;">Welcome aboard the Coldplay fan hub!</h2>
+  <div class="info-subtitle" style="text-align:center; width:100%;">Check out their official pages on these platforms:</div>
+    <div class="profile-grid" style="margin-left:auto; margin-right:auto;"> 
         <div class="profile-item">
           <a href="https://web.facebook.com/coldplay" target="_blank" rel="noopener noreferrer">
             <img src="/images/pfp.jpg" alt="Profile 1" class="profile-pic" />
@@ -141,6 +141,7 @@
   transform: scale(1.18);
  }
  .info-subtitle {
+  margin-left: 40px;
    color: #fff;
    font-size: 1.5rem;
    margin-top: 4px;
@@ -262,6 +263,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-left: 45px;
   margin-top: 5px;
   margin-bottom: 12px;
   font-size: 2.5rem;
