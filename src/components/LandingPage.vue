@@ -2,6 +2,11 @@
   <header class="header">
   <img src="/images/sun.jpg" alt="Header sun" class="header-img" />
     <span class="header-title">COLDPLAY</span>
+      <nav class="header-nav">
+        <button class="header-btn">About the band</button>
+        <button class="header-btn">Music</button>
+        <button class="header-btn">Concert history</button>
+      </nav>
   </header>
   <section class="landing-bg"></section>
   <footer class="footer">
@@ -10,7 +15,7 @@
   <section class="info-section">
     <div class="info-content">
       <h2>Welcome to Coldplay Fan Page</h2>
-      <p>Discover the latest news, albums, and tour dates of Coldplay. Stay tuned for more updates and exclusive content!</p>
+      <p>Discover the latest news, albums, and tours dates of Coldplay. Stay tuned for more updates and exclusive content!</p>
     </div>
   </section>
   <!-- ...existing code... -->
@@ -55,6 +60,31 @@
   text-shadow: 0 1px 4px rgba(0,0,0,0.4);
   margin: 0;
   padding: 0;
+}
+
+.header-nav {
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 16px;
+}
+
+.header-btn {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.header-btn:hover {
+  background: rgba(255,255,255,0.35);
+  color: #222;
 }
 .landing-bg {
   width: 100vw;
