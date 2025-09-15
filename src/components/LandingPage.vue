@@ -14,14 +14,114 @@
   </footer>
   <section class="info-section">
     <div class="info-content">
-      <h2>Welcome to Coldplay Fan Page</h2>
-      <p>Discover the latest news, albums, and tours dates of Coldplay. Stay tuned for more updates and exclusive content!</p>
+  <h2>Welcome aboard the Coldplay fan hub!</h2>
+  <div class="info-subtitle">Check out their official pages on these platforms:</div>
+      <div class="profile-grid">
+        <div class="profile-item">
+          <a href="https://web.facebook.com/coldplay" target="_blank" rel="noopener noreferrer">
+            <img src="/images/pfp.jpg" alt="Profile 1" class="profile-pic" />
+          </a>
+          <a href="https://web.facebook.com/coldplay" target="_blank" rel="noopener noreferrer" class="profile-btn">FACEBOOK</a>
+        </div>
+        <div class="profile-item">
+          <a href="https://www.instagram.com/coldplay/" target="_blank" rel="noopener noreferrer">
+            <img src="/images/pfp.jpg" alt="Profile 2" class="profile-pic" />
+          </a>
+          <a href="https://www.instagram.com/coldplay/" target="_blank" rel="noopener noreferrer" class="profile-btn">INSTAGRAM</a>
+        </div>
+        <div class="profile-item">
+          <a href="https://www.youtube.com/channel/UCDPM_n1atn2ijUwHd0NNRQw" target="_blank" rel="noopener noreferrer">
+            <img src="/images/pfp.jpg" alt="Profile 3" class="profile-pic" />
+          </a>
+          <a href="https://www.youtube.com/channel/UCDPM_n1atn2ijUwHd0NNRQw" target="_blank" rel="noopener noreferrer" class="profile-btn">YOUTUBE</a>
+        </div>
+        <div class="profile-item">
+          <a href="https://open.spotify.com/artist/4gzpq5DPGxSnKTe4SA8HAU" target="_blank" rel="noopener noreferrer">
+            <img src="/images/pfp.jpg" alt="Profile 4" class="profile-pic" />
+          </a>
+          <a href="https://open.spotify.com/artist/4gzpq5DPGxSnKTe4SA8HAU" target="_blank" rel="noopener noreferrer" class="profile-btn">SPOTIFY</a>
+        </div>
+      </div>
+      
     </div>
   </section>
   <!-- ...existing code... -->
 </template>
 
 <style scoped>
+ .profile-btn {
+   display: inline-block;
+   margin-top: 8px;
+   padding: 6px 18px;
+   background: rgba(255,136,0,0.18);
+   color: #fff;
+   font-size: 1rem;
+   font-weight: 600;
+   border: none;
+   border-radius: 18px;
+   text-shadow: 0 2px 8px #ff8800, 0 1px 2px #ff8800;
+   transition: background 0.3s, text-shadow 0.6s cubic-bezier(0.4,0,0.2,1), color 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.2s;
+   animation: glow-orange 2s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+   text-align: center;
+   cursor: pointer;
+   text-decoration: none;
+ }
+ .profile-btn:hover {
+   background: rgba(255,136,0,0.38);
+   color: #222;
+   transform: scale(1.08);
+ }
+ .profile-item {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+ .profile-label {
+   margin-top: 8px;
+   color: #fff;
+   font-size: 0.95rem;
+   font-weight: 600;
+   letter-spacing: 1px;
+   text-shadow: 0 2px 8px #ff8800, 0 1px 2px #ff8800;
+   transition: text-shadow 0.6s cubic-bezier(0.4,0,0.2,1), color 0.6s cubic-bezier(0.4,0,0.2,1);
+   animation: glow-orange 2s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+   text-align: center;
+ }
+ .profile-grid {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 24px;
+   margin: 18px auto 0 auto;
+   max-width: 500px;
+   width: 100%;
+   background: none;
+   border: none;
+ }
+ .profile-pic {
+   width: 90px;
+   height: 90px;
+   object-fit: cover;
+   border-radius: 50%;
+   box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+   border: 2px solid #fff0;
+   background: none;
+  transition: box-shadow 0.3s, transform 0.3s cubic-bezier(0.4,0,0.2,1);
+ }
+ .profile-pic:hover {
+  box-shadow: 0 4px 24px rgba(255,136,0,0.25);
+  transform: scale(1.18);
+ }
+ .info-subtitle {
+   color: #fff;
+   font-size: 1.5rem;
+   margin-top: 4px;
+   text-shadow: 0 4px 16px #ff8800, 0 1px 2px #ff8800;
+   transition: text-shadow 0.6s cubic-bezier(0.4,0,0.2,1), color 0.6s cubic-bezier(0.4,0,0.2,1);
+   animation: glow-orange 2s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+ }
 :global(body) {
   margin: 0;
   padding: 0;
@@ -99,14 +199,14 @@
 }
 .footer {
   width: 100vw;
-  height: 70px;
+  height: 50px;
   overflow: hidden;
   margin: 0;
   padding: 0;
 }
 .footer-img {
   width: 100vw;
-  height: 70px;
+  height: 60px;
   object-fit: cover;
   display: block;
   margin-left: 0 !important;
@@ -115,22 +215,43 @@
 }
 .info-section {
   width: 100vw;
-  min-height: 200px;
-  background: #222;
+  min-height: 300px;
+  background: #00061d;
   color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   margin: 0;
-  padding: 32px 0;
+  padding: 0;
 }
 .info-content {
-  max-width: 700px;
+  max-width: 900px;
   text-align: center;
+  margin-top: 12px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .info-section h2 {
-  margin-bottom: 16px;
-  font-size: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 5px;
+  margin-bottom: 12px;
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 0 4px 16px #ff8800, 0 1px 2px #ff8800;
+  transition: text-shadow 0.6s cubic-bezier(0.4,0,0.2,1), color 0.6s cubic-bezier(0.4,0,0.2,1);
+  animation: glow-orange 2s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+}
+
+@keyframes glow-orange {
+  0% {
+    text-shadow: 0 4px 16px #ff8800, 0 1px 2px #ff8800;
+  }
+  50% {
+    text-shadow: 0 12px 48px #ff5500, 0 4px 16px #ff8800;
+  }
+  100% {
+    text-shadow: 0 8px 32px #ff5500, 0 2px 8px #ff8800;
+  }
 }
 .info-section p {
   font-size: 1.1rem;
