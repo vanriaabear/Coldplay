@@ -120,6 +120,7 @@
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    gap: 24px;
+
    margin: 18px auto 0 auto;
    max-width: 500px;
    width: 100%;
