@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <header class="header">
     <img src="/images/sun.jpg" alt="Header sun" class="header-img" />
     <span class="header-title">COLDPLAY</span>
@@ -8,6 +8,9 @@
       <button class="header-btn">Concert history</button>
     </nav>
   </header>
+
+  <main class="background-section">
+  </main>
 
   <footer class="footer">
     <img src="/images/sun.jpg" alt="Footer sun" class="footer-img" />
@@ -76,13 +79,22 @@
   color: #222;
 }
 
+.background-section {
+  width: 100vw;
+  height: 600px;
+  background-image: url('/images/aboutt_bg.jpg'), url('/images/sun.jpg');
+  background-size: cover, 120%;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  margin-top: 15px;
+}
+
 .footer {
   width: 100vw;
   height: 50px;
   overflow: hidden;
   margin: 0;
   padding: 0;
-  margin-top: 60px;
 }
 .footer-img {
   width: 100vw;
