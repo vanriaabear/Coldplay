@@ -10,6 +10,29 @@
   </header>
 
   <main class="background-section">
+    <div class="carousel-container">
+      <div class="carousel-wrapper">
+        <div class="carousel-column" v-for="col in 4" :key="col">
+          <div class="carousel-images">
+            <img 
+              v-for="img in 3" 
+              :key="img" 
+              :src="`/images/band${(col - 1) * 3 + img}.jpg`" 
+              :alt="`Band image ${(col - 1) * 3 + img}`"
+              class="carousel-img"
+            />
+            <!-- Duplicate for seamless loop -->
+            <img 
+              v-for="img in 3" 
+              :key="'dup-' + img" 
+              :src="`/images/band${(col - 1) * 3 + img}.jpg`" 
+              :alt="`Band image ${(col - 1) * 3 + img}`"
+              class="carousel-img"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer class="footer">
@@ -81,12 +104,74 @@
 
 .background-section {
   width: 100vw;
-  height: 600px;
+  min-height: 600px;
   background-image: url('/images/aboutt_bg.jpg'), url('/images/sun.jpg');
   background-size: cover, 120%;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
   margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.carousel-container {
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.carousel-column {
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+  height: 400px;
+}
+
+.carousel-images {
+  display: flex;
+  flex-direction: column;
+  animation: scroll-vertical 15s linear infinite;
+}
+
+.carousel-column:nth-child(even) .carousel-images {
+  animation-direction: reverse;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.carousel-img:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+@keyframes scroll-vertical {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
 }
 
 .footer {
@@ -121,6 +206,13 @@
   }
   .footer-img {
     height: 40px;
+  }
+  .carousel-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .carousel-column {
+    height: 300px;
   }
 }
 
