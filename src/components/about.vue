@@ -12,10 +12,29 @@
   <main class="background-section">
     <!-- Profile Grid -->
     <div class="profile-grid">
-      <div class="profile-card" v-for="profile in profiles" :key="profile.name">
+      <div 
+        class="profile-card" 
+        v-for="profile in profiles" 
+        :key="profile.name"
+        @click="toggleProfile(profile.name)"
+        :class="{ 'expanded': expandedProfile === profile.name }"
+      >
         <img :src="profile.image" :alt="profile.name" class="profile-img" />
         <h3 class="profile-name">{{ profile.name }}</h3>
         <p class="profile-role">{{ profile.role }}</p>
+        
+        <!-- Expandable Info Section -->
+        <transition name="slide-fade">
+          <div v-if="expandedProfile === profile.name" class="profile-info">
+            <div class="info-content">
+              <p class="info-item"><strong>Full Name:</strong> {{ profile.fullName }}</p>
+              <p class="info-item"><strong>Born:</strong> {{ profile.born }}</p>
+              <p class="info-item"><strong>Nationality:</strong> {{ profile.nationality }}</p>
+              <p class="info-item"><strong>Instruments:</strong> {{ profile.instruments }}</p>
+              <p class="info-item info-bio">{{ profile.bio }}</p>
+            </div>
+          </div>
+        </transition>
       </div>
     </div>
 
@@ -53,11 +72,56 @@
 import { ref } from 'vue';
 
 const profiles = ref([
-  { name: 'Chris Martin', role: 'Lead Vocals, Piano', image: '/images/chris(1).jpg' },
-  { name: 'Jonny Buckland', role: 'Lead Guitar', image: '/images/jonny.jpg' },
-  { name: 'Guy Berryman', role: 'Bass Guitar', image: '/images/guy.webp' },
-  { name: 'Will Champion', role: 'Drums, Backing Vocals', image: '/images/will.jpg' }
+  { 
+    name: 'Chris Martin', 
+    role: 'Lead Vocals, Piano', 
+    image: '/images/chris(1).jpg',
+    fullName: 'Christopher Anthony John Martin',
+    born: 'March 2, 1977',
+    nationality: 'British',
+    instruments: 'Vocals, Piano, Guitar',
+    bio: 'Lead vocalist and co-founder of Coldplay. Known for his distinctive voice and piano skills.'
+  },
+  { 
+    name: 'Jonny Buckland', 
+    role: 'Lead Guitar', 
+    image: '/images/jonny.jpg',
+    fullName: 'Jonathan Mark Buckland',
+    born: 'September 11, 1977',
+    nationality: 'British',
+    instruments: 'Lead Guitar, Backing Vocals',
+    bio: 'Lead guitarist and co-founder of Coldplay, known for his atmospheric and melodic guitar work that defines Coldplay\'s sound.'
+  },
+  { 
+    name: 'Guy Berryman', 
+    role: 'Bass Guitar', 
+    image: '/images/guy.webp',
+    fullName: 'Guy Rupert Berryman',
+    born: 'April 12, 1978',
+    nationality: 'British',
+    instruments: 'Bass Guitar, Keyboards',
+    bio: 'Bassist and one of the founding members, providing the rhythmic foundation for the band.'
+  },
+  { 
+    name: 'Will Champion', 
+    role: 'Drums, Backing Vocals', 
+    image: '/images/will.jpg',
+    fullName: 'William Champion',
+    born: 'July 31, 1978',
+    nationality: 'British',
+    instruments: 'Drums, Percussion, Backing Vocals',
+    bio: 'Multi-instrumentalist drummer who adds depth to Coldplay\'s music with his versatile skills.'
+  }
 ]);
+
+const expandedProfile = ref(null);
+
+function toggleProfile(name) {
+  console.log('Toggling profile:', name);
+  console.log('Current expanded:', expandedProfile.value);
+  expandedProfile.value = expandedProfile.value === name ? null : name;
+  console.log('New expanded:', expandedProfile.value);
+}
 
 function getImageSrc(n) {
   // Chris Martin - images 1-3
@@ -169,6 +233,7 @@ function getImageSrc(n) {
   width: 100%;
   max-width: 1200px;
   margin-top: 80px;
+  align-items: start;
 }
 
 .profile-card {
@@ -177,13 +242,23 @@ function getImageSrc(n) {
   border-radius: 16px;
   padding: 8px;
   text-align: center;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
 }
 
 .profile-card:hover {
   transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.15);
+  background: rgb(255, 115, 30);
+  box-shadow: 0 8px 20px rgba(253, 95, 4, 0.4);
+}
+
+.profile-card.expanded {
+  background: rgb(255, 115, 30);
+  box-shadow: 0 12px 30px rgba(253, 95, 4, 0.5);
 }
 
 .profile-img {
@@ -213,6 +288,68 @@ function getImageSrc(n) {
   font-size: 0.7rem;
   margin: 0;
   text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.profile-info {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: left;
+}
+
+.info-content {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.info-item {
+  color: #fff;
+  font-size: 0.65rem;
+  margin: 6px 0;
+  line-height: 1.4;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.info-item strong {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.info-bio {
+  margin-top: 10px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 8px;
+}
+
+/* Slide-fade transition */
+.slide-fade-enter-active {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-fade-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-fade-enter-from {
+  transform: translateY(-10px);
+  opacity: 0;
+}
+
+.slide-fade-leave-to {
+  transform: translateY(-10px);
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .carousel-container {
