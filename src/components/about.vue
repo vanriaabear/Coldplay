@@ -75,7 +75,7 @@ const profiles = ref([
   { 
     name: 'Chris Martin', 
     role: 'Lead Vocals, Piano', 
-    image: '/images/chris.jpg',
+    image: '/images/chris_1.jpg',
     fullName: 'Christopher Anthony John Martin',
     born: 'March 2, 1977',
     nationality: 'British',
@@ -85,7 +85,7 @@ const profiles = ref([
   { 
     name: 'Jonny Buckland', 
     role: 'Lead Guitar', 
-    image: '/images/jonny.jpg',
+    image: '/images/jonny_1.jpg',
     fullName: 'Jonathan Mark Buckland',
     born: 'September 11, 1977',
     nationality: 'British',
@@ -95,7 +95,7 @@ const profiles = ref([
   { 
     name: 'Guy Berryman', 
     role: 'Bass Guitar', 
-    image: '/images/guy.webp',
+    image: '/images/guy_1.webp',
     fullName: 'Guy Rupert Berryman',
     born: 'April 12, 1978',
     nationality: 'British',
@@ -105,7 +105,7 @@ const profiles = ref([
   { 
     name: 'Will Champion', 
     role: 'Drums, Backing Vocals', 
-    image: '/images/will.jpg',
+    image: '/images/will_1.jpg',
     fullName: 'William Champion',
     born: 'July 31, 1978',
     nationality: 'British',
@@ -125,24 +125,24 @@ function toggleProfile(name) {
 
 function getImageSrc(n) {
   // Chris Martin - images 1-3
-  if (n === 1) return '/images/chriss.webp';
-  if (n === 2) return '/images/chrisss.jpeg';
-  if (n === 3) return '/images/chrissss.webp';
+  if (n === 1) return '/images/chris_2.webp';
+  if (n === 2) return '/images/chris_3.jpeg';
+  if (n === 3) return '/images/chris_4.webp';
   
   // Jonny Buckland - images 4-6
-  if (n === 4) return '/images/jonnyy.jpg';
-  if (n === 5) return '/images/jonnyyy.jpg';
-  if (n === 6) return '/images/jonnyyyy.jpg';
+  if (n === 4) return '/images/jonny_2.jpg';
+  if (n === 5) return '/images/jonny_3.jpg';
+  if (n === 6) return '/images/jonny_4.jpg';
   
   // Guy Berryman - images 7-9
-  if (n === 7) return '/images/guyy.jpg';
-  if (n === 8) return '/images/guyyy.jpg';
-  if (n === 9) return '/images/guyyyy.jpg';
+  if (n === 7) return '/images/guy_2.jpg';
+  if (n === 8) return '/images/guy_3.jpg';
+  if (n === 9) return '/images/guy_4.jpg';
   
   // Will Champion - images 10-12
-  if (n === 10) return '/images/willl.jpg';
-  if (n === 11) return '/images/willll.jpg';
-  if (n === 12) return '/images/willlll.jpg';
+  if (n === 10) return '/images/will_2.jpg';
+  if (n === 11) return '/images/will_3.jpg';
+  if (n === 12) return '/images/will_4.jpg';
   
   return `/images/band${n}.jpg`;
 }
