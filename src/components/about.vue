@@ -75,7 +75,7 @@ const profiles = ref([
   { 
     name: 'Chris Martin', 
     role: 'Lead Vocals, Piano', 
-    image: '/images/chris(1).jpg',
+    image: '/images/chris.jpg',
     fullName: 'Christopher Anthony John Martin',
     born: 'March 2, 1977',
     nationality: 'British',
@@ -125,24 +125,24 @@ function toggleProfile(name) {
 
 function getImageSrc(n) {
   // Chris Martin - images 1-3
-  if (n === 1) return '/images/chris(2).webp';
-  if (n === 2) return '/images/chris(3).jpeg';
-  if (n === 3) return '/images/chris(4).webp';
+  if (n === 1) return '/images/chriss.webp';
+  if (n === 2) return '/images/chrisss.jpeg';
+  if (n === 3) return '/images/chrissss.webp';
   
   // Jonny Buckland - images 4-6
-  if (n === 4) return '/images/jonnyyy(2).jpg';
-  if (n === 5) return '/images/jonnyy(3).jpg';
-  if (n === 6) return '/images/jonnyy(4).jpg';
+  if (n === 4) return '/images/jonnyy.jpg';
+  if (n === 5) return '/images/jonnyyy.jpg';
+  if (n === 6) return '/images/jonnyyyy.jpg';
   
   // Guy Berryman - images 7-9
-  if (n === 7) return '/images/guyy(2).jpg';
-  if (n === 8) return '/images/guyy(3).jpg';
-  if (n === 9) return '/images/guyy(4).jpg';
+  if (n === 7) return '/images/guyy.jpg';
+  if (n === 8) return '/images/guyyy.jpg';
+  if (n === 9) return '/images/guyyyy.jpg';
   
   // Will Champion - images 10-12
-  if (n === 10) return '/images/willl(2).jpg';
-  if (n === 11) return '/images/willl(3).jpg';
-  if (n === 12) return '/images/willl(4).jpg';
+  if (n === 10) return '/images/willl.jpg';
+  if (n === 11) return '/images/willll.jpg';
+  if (n === 12) return '/images/willlll.jpg';
   
   return `/images/band${n}.jpg`;
 }
