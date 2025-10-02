@@ -192,6 +192,8 @@ function getImageSrc(n) {
   transform: translateY(-50%);
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .header-btn {
@@ -233,6 +235,7 @@ function getImageSrc(n) {
   width: 100%;
   max-width: 1200px;
   margin-top: 80px;
+  padding: 0 20px;
   align-items: start;
 }
 
@@ -428,15 +431,51 @@ function getImageSrc(n) {
   padding: 0;
 }
 
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 1.4rem;
+    left: 16px;
+  }
+  .header-nav {
+    right: 16px;
+    gap: 8px;
+  }
+  .header-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+  .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 0 16px;
+  }
+  .carousel-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+/* Mobile breakpoint */
 @media (max-width: 600px) {
   .header {
-    height: 40px;
+    height: 50px;
   }
   .header-img {
-    height: 32px;
+    height: 50px;
   }
   .header-title {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    left: 12px;
+  }
+  .header-nav {
+    right: 12px;
+    gap: 6px;
+  }
+  .header-btn {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    border-radius: 12px;
   }
   .footer {
     height: 40px;
@@ -444,19 +483,31 @@ function getImageSrc(n) {
   .footer-img {
     height: 40px;
   }
+  .background-section {
+    min-height: 500px;
+    padding: 20px 0;
+  }
   .profile-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 12px;
+    margin-top: 60px;
+    padding: 0 12px;
+  }
+  .profile-card {
+    padding: 6px;
   }
   .profile-img {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
   }
   .profile-name {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
   .profile-role {
-    font-size: 0.85rem;
+    font-size: 0.65rem;
+  }
+  .info-item {
+    font-size: 0.6rem;
   }
   .carousel-wrapper {
     grid-template-columns: repeat(2, 1fr);
@@ -465,23 +516,85 @@ function getImageSrc(n) {
   .carousel-column {
     height: 300px;
   }
+  .carousel-container {
+    padding: 12px;
+  }
 }
 
+/* Small mobile breakpoint */
+@media (max-width: 480px) {
+  .header-nav {
+    gap: 4px;
+  }
+  .header-btn {
+    padding: 4px 8px;
+    font-size: 0.65rem;
+  }
+  .profile-grid {
+    gap: 10px;
+  }
+  .profile-img {
+    width: 45px;
+    height: 45px;
+  }
+  .profile-name {
+    font-size: 0.75rem;
+  }
+  .profile-role {
+    font-size: 0.6rem;
+  }
+  .carousel-column {
+    height: 250px;
+  }
+}
+
+/* Extra small mobile breakpoint */
 @media (max-width: 400px) {
   .header {
-    height: 24px;
+    height: 45px;
   }
   .header-img {
-    height: 24px;
+    height: 45px;
   }
   .header-title {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    left: 8px;
+  }
+  .header-nav {
+    right: 8px;
+    gap: 3px;
+  }
+  .header-btn {
+    padding: 3px 6px;
+    font-size: 0.6rem;
   }
   .footer {
-    height: 28px;
+    height: 35px;
   }
   .footer-img {
-    height: 28px;
+    height: 35px;
+  }
+  .profile-grid {
+    gap: 8px;
+  }
+  .profile-card {
+    padding: 5px;
+  }
+  .profile-img {
+    width: 40px;
+    height: 40px;
+  }
+  .profile-name {
+    font-size: 0.7rem;
+  }
+  .profile-role {
+    font-size: 0.55rem;
+  }
+  .info-item {
+    font-size: 0.55rem;
+  }
+  .carousel-column {
+    height: 200px;
   }
 }
 </style>

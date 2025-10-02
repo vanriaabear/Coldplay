@@ -111,48 +111,44 @@
    font-size: 0.95rem;
    font-weight: 600;
    letter-spacing: 1px;
-   text-shadow: 0 2px 8px #ff8800, 0 1px 2px #ff8800;
    transition: text-shadow 0.6s cubic-bezier(0.4,0,0.2,1), color 0.6s cubic-bezier(0.4,0,0.2,1);
    animation: glow-orange 2s cubic-bezier(0.4,0,0.2,1) infinite alternate;
    text-align: center;
  }
  .profile-grid {
-   display: grid;
-   grid-template-columns: repeat(4, 1fr);
-   gap: 24px;
-
-   margin: 18px auto 0 auto;
-   max-width: 500px;
-   width: 100%;
-   background: none;
-   border: none;
- }
- .profile-pic {
-   width: 90px;
-   height: 90px;
-   object-fit: cover;
-   border-radius: 50%;
-   box-shadow: 0 2px 12px rgba(0,0,0,0.18);
-   border: 2px solid #fff0;
-   background: none;
-  transition: box-shadow 0.3s, transform 0.3s cubic-bezier(0.4,0,0.2,1);
- }
- .profile-pic:hover {
-  box-shadow: 0 0 0 4px rgba(255,255,255,0.18), 0 0 16px 8px rgba(255,255,255,0.35), 0 0 32px 16px rgba(255,255,255,0.45);
-  transform: scale(1.18);
- }
- .info-subtitle {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 18px auto 0 auto;
+  max-width: 500px;
+  width: 100%;
+  padding: 0 16px;
+  background: none;
+  border: none;
+}
+.profile-pic {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  border: 2px solid #fff0;
+  background: none;
+ transition: box-shadow 0.3s, transform 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.profile-pic:hover {
+ box-shadow: 0 0 0 4px rgba(255,255,255,0.18), 0 0 16px 8px rgba(255,255,255,0.35), 0 0 32px 16px rgba(255,255,255,0.45);
+ transform: scale(1.18);
+}
+.info-subtitle {
   margin-left: 40px;
-   color: #fff;
-   font-size: 1.5rem;
-   margin-top: 4px;
-   text-shadow: 0 4px 16px #ff8800, 0 1px 2px #ff8800;
-   transition: text-shadow 0.6s cubic-bezier(0.4,0,0.2,1), color 0.6s cubic-bezier(0.4,0,0.2,1);
-   animation: glow-orange 2s cubic-bezier(0.4,0,0.2,1) infinite alternate;
-   white-space: nowrap;
-   overflow: hidden;
-   text-overflow: ellipsis;
- }
+  color: #fff;
+  font-size: 1.5rem;
+  margin-top: 4px;
+  text-shadow: 0 4px 16px #ff8800, 0 1px 2px #ff8800;
+  transition: text-shadow 0.6s cubic-bezier(0.4,0,0.2,1), color 0.6s cubic-bezier(0.4,0,0.2,1);
+  animation: glow-orange 2s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+}
 :global(body) {
   margin: 0;
   padding: 0;
@@ -200,6 +196,7 @@
   transform: translateY(-50%);
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .header-btn {
@@ -261,9 +258,6 @@
   margin-right: auto;
 }
 .info-section h2 {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   margin-left: 45px;
   margin-top: 5px;
   margin-bottom: 12px;
@@ -272,6 +266,7 @@
   text-shadow: 0 4px 16px #ff8800, 0 1px 2px #ff8800;
   transition: text-shadow 0.6s cubic-bezier(0.4,0,0.2,1), color 0.6s cubic-bezier(0.4,0,0.2,1);
   animation: glow-orange 2s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+  padding: 0 16px;
 }
 
 @keyframes glow-orange {
@@ -322,18 +317,62 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 1.4rem;
+    left: 16px;
+  }
+  .header-nav {
+    right: 16px;
+    gap: 8px;
+  }
+  .header-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+  .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 400px;
+  }
+  .profile-pic {
+    width: 80px;
+    height: 80px;
+  }
+  .info-section h2 {
+    font-size: 2rem;
+    margin-left: 0;
+  }
+  .info-subtitle {
+    font-size: 1.2rem;
+    margin-left: 0;
+  }
+}
+
+/* Mobile breakpoint */
 @media (max-width: 600px) {
   .header {
-    height: 40px;
+    height: 50px;
   }
   .header-img {
-    height: 32px;
+    height: 50px;
   }
   .header-title {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    left: 12px;
+  }
+  .header-nav {
+    right: 12px;
+    gap: 6px;
+  }
+  .header-btn {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    border-radius: 12px;
   }
   .landing-bg {
-    height: 220px;
+    height: 300px;
   }
   .footer {
     height: 40px;
@@ -343,13 +382,39 @@
   }
   .info-section {
     min-height: 120px;
-    padding: 16px 0;
+    padding: 20px 0;
+  }
+  .info-content {
+    padding: 0 12px;
   }
   .info-section h2 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    margin-left: 0;
+  }
+  .info-subtitle {
+    font-size: 1rem;
+    margin-left: 0;
   }
   .info-section p {
     font-size: 1rem;
+  }
+  .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 0 12px;
+  }
+  .profile-pic {
+    width: 70px;
+    height: 70px;
+  }
+  .profile-btn {
+    font-size: 0.85rem;
+    padding: 5px 12px;
+  }
+  .profile-logo {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
   }
   .black-section {
     min-height: 300px;
@@ -363,24 +428,85 @@
   }
 }
 
-@media (max-width: 400px) {
-  .header {
-    height: 24px;
+/* Small mobile breakpoint */
+@media (max-width: 480px) {
+  .header-nav {
+    gap: 4px;
   }
-  .header-img {
-    height: 24px;
+  .header-btn {
+    padding: 4px 8px;
+    font-size: 0.65rem;
   }
-  .header-title {
+  .info-section h2 {
+    font-size: 1.3rem;
+  }
+  .info-subtitle {
     font-size: 0.9rem;
   }
+  .profile-grid {
+    gap: 10px;
+  }
+  .profile-pic {
+    width: 60px;
+    height: 60px;
+  }
+  .profile-btn {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+}
+
+/* Extra small mobile breakpoint */
+@media (max-width: 400px) {
+  .header {
+    height: 45px;
+  }
+  .header-img {
+    height: 45px;
+  }
+  .header-title {
+    font-size: 1rem;
+    left: 8px;
+  }
+  .header-nav {
+    right: 8px;
+    gap: 3px;
+  }
+  .header-btn {
+    padding: 3px 6px;
+    font-size: 0.6rem;
+  }
   .landing-bg {
-    height: 120px;
+    height: 250px;
   }
   .footer {
-    height: 28px;
+    height: 35px;
   }
   .footer-img {
-    height: 28px;
+    height: 35px;
+  }
+  .info-section h2 {
+    font-size: 1.1rem;
+  }
+  .info-subtitle {
+    font-size: 0.8rem;
+  }
+  .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .profile-pic {
+    width: 55px;
+    height: 55px;
+  }
+  .profile-btn {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+  .profile-logo {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
   }
 }
 </style>
