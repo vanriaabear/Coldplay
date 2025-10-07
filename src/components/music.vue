@@ -18,13 +18,21 @@
       <!-- ALBUMS Grid -->
       <div v-if="activeTab === 'ALBUMS'" class="albums-grid">
         <div 
-          v-for="n in 17" 
-          :key="n" 
+          v-for="(image, index) in albumImages" 
+          :key="index" 
           class="album-cell"
-          :class="{ 'last-cell': n === 17 }"
+          :class="{ 'last-cell': index === 16 }"
         >
-          <div class="album-placeholder">
-            {{ n }}
+          <div class="album-content">
+            <img 
+              :src="`/images/${image}`" 
+              :alt="albumInfo[index].title"
+              class="album-image"
+            />
+            <div class="album-caption">
+              <div class="album-date">{{ albumInfo[index].date }}</div>
+              <div class="album-title">{{ albumInfo[index].title }}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -47,12 +55,52 @@ import { ref } from 'vue';
 
 const tabs = ['ALBUMS', 'SOLO', 'SONGS'];
 const activeTab = ref('ALBUMS');
+
+const albumImages = [
+  'moon.jpg',
+  'mots.jpg',
+  'everyday_life.jpg',
+  'livein.jpg',
+  'kalei.jpg',
+  'head.jpg',
+  'ghostlive.jpg',
+  'ghost.jpg',
+  'live_2012.jpg',
+  'mylo.jpg',
+  'leftright.jpg',
+  'prospekt.jpg',
+  'vivala.jpg',
+  'xy.jpg',
+  'live_2003.jpg',
+  'rush.jpg',
+  'parachutes.jpg'
+];
+
+const albumInfo = [
+  { date: 'Released: October 4, 2024', title: 'MOON MUSiC' },
+  { date: 'Released: October 15, 2021', title: 'MUSIC OF THE SPHERES' },
+  { date: 'Released: November 22, 2019', title: 'EVERYDAY LIFE' },
+  { date: 'Released: December 7, 2018', title: 'LIVE IN BUENOS AIRES' },
+  { date: 'Released: July 14, 2017', title: 'KALEIDOSCOPE EP' },
+  { date: 'Released: December 4, 2015', title: 'A HEAD FULL OF DREAMS' },
+  { date: 'Released: November 24, 2014', title: 'GHOST STORIES LIVE 2014' },
+  { date: 'Released: May 19, 2014', title: 'GHOST STORIES' },
+  { date: 'Released: November 19, 2012', title: 'LIVE 2012' },
+  { date: 'Released: October 24, 2011', title: 'MYLOXY LOTO' },
+  { date: 'Released: May 15, 2009', title: 'LEFTRIGHTLEFTRIGHTLEFT' },
+  { date: 'Released: November 21, 2008', title: "PROSPEKT'S MARCH" },
+  { date: 'Released: June 12, 2008', title: 'VIVA LA VIDA OR DEATH AND ALL HIS FRIENDS' },
+  { date: 'Released: June 6, 2005', title: 'X&Y' },
+  { date: 'Released: November 11, 2003', title: 'LIVE 2003' },
+  { date: 'Released: August 26, 2002', title: 'A RUSH OF BLOOD TO THE HEAD' },
+  { date: 'Released: July 10, 2000', title: 'PARACHUTES' }
+];
 </script>
 
 <style scoped>
 .music-section {
   width: 100vw;
-  min-height: 600px;
+  min-height: 100vh;
   background-image: url('/images/music_background.jpg');
   background-size: cover;
   background-position: center;
@@ -62,6 +110,7 @@ const activeTab = ref('ALBUMS');
   justify-content: center;
   position: relative;
   margin: 0;
+  padding: 40px 0;
 }
 
 .music-content {
@@ -140,7 +189,6 @@ const activeTab = ref('ALBUMS');
 }
 
 .album-cell {
-  aspect-ratio: 1;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 12px;
@@ -150,6 +198,15 @@ const activeTab = ref('ALBUMS');
   justify-content: center;
   transition: all 0.3s ease;
   cursor: pointer;
+  overflow: hidden;
+  padding: 15px;
+}
+
+.album-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .album-cell:hover {
@@ -163,11 +220,33 @@ const activeTab = ref('ALBUMS');
   grid-column: 1;
 }
 
-.album-placeholder {
+.album-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 8px;
+}
+
+.album-caption {
+  text-align: center;
   color: #fff;
-  font-size: 2rem;
+}
+
+.album-date {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+
+.album-title {
+  font-size: 1rem;
   font-weight: bold;
+  color: #fff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1px;
+  line-height: 1.2;
 }
 
 .solo-content,
@@ -205,8 +284,12 @@ const activeTab = ref('ALBUMS');
     grid-column: 1;
   }
   
-  .album-placeholder {
-    font-size: 1.5rem;
+  .album-date {
+    font-size: 0.65rem;
+  }
+  
+  .album-title {
+    font-size: 0.85rem;
   }
 }
 
@@ -241,8 +324,12 @@ const activeTab = ref('ALBUMS');
     margin-left: 100px;
   }
   
-  .album-placeholder {
-    font-size: 1.2rem;
+  .album-date {
+    font-size: 0.6rem;
+  }
+  
+  .album-title {
+    font-size: 0.75rem;
   }
 }
 </style>
