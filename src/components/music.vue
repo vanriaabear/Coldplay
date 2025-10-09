@@ -40,18 +40,16 @@
       <!-- SINGLES Grid -->
       <div v-if="activeTab === 'SINGLES'" class="singles-grid">
         <div 
-          v-for="n in 47" 
-          :key="n" 
+          v-for="(image, index) in singleImages" 
+          :key="index" 
           class="single-cell"
         >
           <div class="single-content">
-            <div class="single-image-placeholder">
-              {{ n }}
-            </div>
-            <div class="single-caption">
-              <div class="single-date"></div>
-              <div class="single-title"></div>
-            </div>
+            <img 
+              :src="`/Coldplay/images/${image}`" 
+              :alt="`Single ${index + 1}`"
+              class="single-image"
+            />
           </div>
         </div>
       </div>
@@ -108,6 +106,55 @@ const albumInfo = [
   { date: 'Released: November 11, 2003', title: 'LIVE 2003' },
   { date: 'Released: August 26, 2002', title: 'A RUSH OF BLOOD TO THE HEAD' },
   { date: 'Released: July 10, 2000', title: 'PARACHUTES' }
+];
+
+const singleImages = [
+  's_allmylove.webp',
+  's_wepray.webp',
+  's_feelslike.webp',
+  's_letsomebody.jpg',
+  's_myuni.jpg',
+  's_higher.jpg',
+  's_orphans.webp',
+  's_something.jpg',
+  's_everglow.jpg',
+  's_up.jpg',
+  's_hymn.jpg',
+  's_adventure.jpg',
+  's_miracles.jpg',
+  's_truelove.jpg',
+  's_asky.jpg',
+  's_magic.jpg',
+  's_midnight.jpg',
+  's_atlas.jpg',
+  's_hurts.jpg',
+  's_princesss.jpg',
+  's_upwith.jpg',
+  's_charlie.jpg',
+  's_paradise.jpg',
+  's_everytear.jpg',
+  's_everyteartwo.jpg',
+  's_christmas.jpg',
+  's_strawberry.jpg',
+  's_lifein.jpg',
+  's_lost.jpg',
+  's_loversinjapan.jpg',
+  's_vivalavida.jpg',
+  's_violet.jpg',
+  's_thehardest.jpg',
+  's_talk.jpg',
+  's_fixyou.jpg',
+  's_speedofsound.jpg',
+  's_god.jpg',
+  's_clocks.jpg',
+  's_thescientist.jpg',
+  's_inmyplace.jpg',
+  's_trouble.jpg',
+  's_yellow.jpg',
+  's_shiver.jpg',
+  's_blueroom.jpg',
+  's_brothers.jpg',
+  's_safety.jpg'
 ];
 </script>
 
@@ -306,19 +353,12 @@ const albumInfo = [
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-.single-image-placeholder {
+.single-image {
   width: 100%;
   aspect-ratio: 1;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
   object-fit: contain;
   object-position: center;
+  border-radius: 8px;
 }
 
 .single-caption {
