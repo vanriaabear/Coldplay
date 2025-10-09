@@ -25,7 +25,7 @@
         >
           <div class="album-content">
             <img 
-              :src="`/images/${image}`" 
+              :src="`/Coldplay/images/${image}`" 
               :alt="albumInfo[index].title"
               class="album-image"
             />
@@ -37,9 +37,23 @@
         </div>
       </div>
 
-      <!-- SOLO Content -->
-      <div v-if="activeTab === 'SOLO'" class="solo-content">
-        <!-- Solo content will go here -->
+      <!-- SINGLES Grid -->
+      <div v-if="activeTab === 'SINGLES'" class="singles-grid">
+        <div 
+          v-for="n in 47" 
+          :key="n" 
+          class="single-cell"
+        >
+          <div class="single-content">
+            <div class="single-image-placeholder">
+              {{ n }}
+            </div>
+            <div class="single-caption">
+              <div class="single-date"></div>
+              <div class="single-title"></div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- SONGS Content -->
@@ -53,7 +67,7 @@
 <script setup>
 import { ref } from 'vue';
 
-const tabs = ['ALBUMS', 'SOLO', 'SONGS'];
+const tabs = ['ALBUMS', 'SINGLES', 'SONGS'];
 const activeTab = ref('ALBUMS');
 
 const albumImages = [
@@ -101,7 +115,7 @@ const albumInfo = [
 .music-section {
   width: 100vw;
   min-height: 100vh;
-  background-image: url('/images/music_background.jpg');
+  background-image: url('/Coldplay/images/music_background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -249,6 +263,90 @@ const albumInfo = [
   line-height: 1.2;
 }
 
+.singles-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  width: 100%;
+  max-width: calc(100vw - 300px);
+  padding: 20px;
+  margin-left: 250px;
+  margin-right: 30px;
+}
+
+.single-cell {
+  aspect-ratio: 1;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 15px;
+}
+
+.single-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.single-cell:hover {
+  background: rgba(253, 95, 4, 0.3);
+  border-color: rgba(253, 95, 4, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.single-image-placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  object-fit: contain;
+  object-position: center;
+}
+
+.single-caption {
+  text-align: center;
+  color: #fff;
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.single-date {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.single-title {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  letter-spacing: 0.8px;
+  line-height: 1.3;
+}
+
 .solo-content,
 .songs-content {
   width: 100%;
@@ -291,6 +389,21 @@ const albumInfo = [
   .album-title {
     font-size: 0.85rem;
   }
+  
+  .singles-grid {
+    grid-template-columns: repeat(3, 264px);
+    gap: 12px;
+    padding: 15px;
+    margin-left: 150px;
+  }
+  
+  .single-date {
+    font-size: 0.6rem;
+  }
+  
+  .single-title {
+    font-size: 0.75rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -331,5 +444,21 @@ const albumInfo = [
   .album-title {
     font-size: 0.75rem;
   }
+  
+  .singles-grid {
+    grid-template-columns: repeat(2, 264px);
+    gap: 10px;
+    padding: 10px;
+    margin-left: 100px;
+  }
+  
+  .single-date {
+    font-size: 0.55rem;
+  }
+  
+  .single-title {
+    font-size: 0.7rem;
+  }
 }
 </style>
+
