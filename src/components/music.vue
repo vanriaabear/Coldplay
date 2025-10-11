@@ -135,6 +135,27 @@
             </div>
           </div>
         </div>
+        <!-- Songs Grid for D -->
+        <div v-if="selectedLetter === 'D'" class="songs-grid">
+          <!-- Header Row -->
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <!-- Song Rows -->
+          <div 
+            v-for="(song, index) in songsLetterD" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -198,6 +219,17 @@ const songsLetterC = [
   { title: 'COLOUR SPECTRUM', album: 'A HEAD FULL OF DREAMS' },
   { title: 'CRESTS OF WAVES', album: 'CLOCKS' },
   { title: 'CRY CRY CRY', album: 'EVERYDAY LIFE' }
+];
+
+// Songs starting with D
+const songsLetterD = [
+  { title: 'DADDY', album: 'EVERYDAY LIFE' },
+  { title: 'DAYLIGHT', album: 'A RUSH OF BLOOD TO THE HEAD' },
+  { title: 'DE MuSICA LIGERA', album: 'LIVE IN BUENOS AIRES' },
+  { title: 'DEATH AND ALL HIS FRIENDS', album: 'VIVA LA VIDA OR DEATH AND ALL HIS FRIENDS' },
+  { title: 'DEATH WILL NEVER CONQUER', album: 'VIVA LA VIDA' },
+  { title: "DON'T LET IT BREAK YOUR HEART", album: 'MYLO XYLOTO' },
+  { title: "DON'T PANIC", album: 'PARACHUTES' }
 ];
 
 const albumImages = [
