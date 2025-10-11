@@ -198,6 +198,27 @@
             </div>
           </div>
         </div>
+        <!-- Songs Grid for G -->
+        <div v-if="selectedLetter === 'G'" class="songs-grid">
+          <!-- Header Row -->
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <!-- Song Rows -->
+          <div 
+            v-for="(song, index) in songsLetterG" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -292,6 +313,17 @@ const songsLetterF = [
   { title: 'FIX YOU (VIDEO)', album: 'X&Y' },
   { title: 'FOR YOU', album: 'SHIVER' },
   { title: 'FUN', album: 'A HEAD FULL OF DREAMS' }
+];
+
+// Songs starting with G
+const songsLetterG = [
+  { title: 'GHOST STORY', album: 'A SKY FULL OF STARS EP' },
+  { title: 'GLASS OF WATER', album: 'GLASS OF WATER, GLASS OF WATER' },
+  { title: 'GOD PUT A SMILE UPON YOUR FACE', album: 'A RUSH OF BLOOD TO THE HEAD' },
+  { title: 'GOOD FEELiNGS', album: 'MOON MUSIC' },
+  { title: 'GRAVITY', album: 'TALK' },
+  { title: 'GREEN EYES', album: 'A RUSH BLOOD TO THE HEAD' },
+  { title: 'GUNS', album: 'EVERYDAY LIFE' }
 ];
 
 const albumImages = [
