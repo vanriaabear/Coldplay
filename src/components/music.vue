@@ -772,10 +772,11 @@ const singleInfo = [
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 100%;
-  max-width: 1100px;
+  width: 50%;
+  max-width: 700px;
   padding: 80px 20px 20px;
-  margin-left: 200px;
+  margin-left: auto;
+  margin-right: 20px;
 }
 
 .song-cell {
