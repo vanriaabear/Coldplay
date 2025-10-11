@@ -47,9 +47,13 @@
           <div class="single-content">
             <img 
               :src="`/Coldplay/images/${image}`" 
-              :alt="`Single ${index + 1}`"
+              :alt="singleInfo[index].title"
               class="single-image"
             />
+            <div class="single-caption">
+              <div class="single-date">{{ singleInfo[index].date }}</div>
+              <div class="single-title">{{ singleInfo[index].title }}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -155,6 +159,55 @@ const singleImages = [
   's_blueroom.jpg',
   's_brothers.jpg',
   's_safety.jpg'
+];
+
+const singleInfo = [
+  { date: 'Released: October 4, 2024', title: 'ALL MY LOVE' },
+  { date: 'Released: August 23, 2024', title: 'WE PRAY' },
+  { date: 'Released: June 21, 2024', title: 'feelslikeimfallinginlove' },
+  { date: 'Released: February 7, 2022', title: 'LET SOMEBODY GO' },
+  { date: 'Released: September 24, 2021', title: 'MY UNIVERSE' },
+  { date: 'Released: May 7, 2021', title: 'HIGHER POWER' },
+  { date: 'Released: October 24, 2019', title: 'Orphans/ Arabesque' },
+  { date: 'Released: February 22, 2017', title: 'SOMETHING JUST LIKE THIS' },
+  { date: 'Released: November 11, 2016', title: 'EVERGLOW (SINGLE VERSION)' },
+  { date: 'Released: April 22, 2016', title: 'UP&UP' },
+  { date: 'Released: February 26, 2016', title: 'HYMN FOR THE WEEKEND' },
+  { date: 'Released: November 6, 2015', title: 'ADVENTURE OF A LIFETIME' },
+  { date: 'Released: December 15, 2014', title: 'MIRACLES' },
+  { date: 'Released: August 18, 2014', title: 'TRUE LOVE' },
+  { date: 'Released: June 29, 2014', title: 'A SKY FULL OF STARS EP' },
+  { date: 'Released: March 3, 2014', title: 'MAGIC' },
+  { date: 'Released: April 19, 2014', title: 'MIDNIGHT' },
+  { date: 'Released: September 6, 2013', title: 'ATLAS' },
+  { date: 'Released: November 19, 2012', title: 'HURTS LIKE HEAVEN' },
+  { date: 'Released: June 4, 2012', title: 'PRINCESS OF CHINA' },
+  { date: 'Released: April 21, 2012', title: 'UP WITH THE BIRDS' },
+  { date: 'Released: February 3, 2012', title: 'CHARLIE BROWN' },
+  { date: 'Released: September 12, 2011', title: 'PARADISE' },
+  { date: 'Released: June 26, 2011', title: 'EVERY TEARDROP IS A WATERFALL EP' },
+  { date: 'Released: June 3, 2011', title: 'EVERY TEARDROP IS A WATERFALL' },
+  { date: 'Released: December 1, 2010', title: 'CHRISTMAS LIGHTS' },
+  { date: 'Released: September 14, 2009', title: 'STRAWBERRY SWING' },
+  { date: 'Released: February 2, 2009', title: 'LIFE IN TECHNICOLOUR II' },
+  { date: 'Released: November 10, 2008', title: 'LOST!' },
+  { date: 'Released: November 3, 2008', title: 'LOVERS IN JAPAN' },
+  { date: 'Released: June 12, 2008', title: 'VIVA LA VIDA' },
+  { date: 'Released: May 6, 2008', title: 'VIOLET HILL' },
+  { date: 'Released: April 6, 2006', title: 'THE HARDEST PART' },
+  { date: 'Released: December 19, 2005', title: 'TALK' },
+  { date: 'Released: September 5, 2005', title: 'FIX YOU' },
+  { date: 'Released: May 23, 2005', title: 'SPEED OF SOUND' },
+  { date: 'Released: July 7, 2003', title: 'GOD PUT A SMILE UPON YOUR FACE' },
+  { date: 'Released: April 2, 2003', title: 'CLOCKS' },
+  { date: 'Released: November 4, 2002', title: 'THE SCIENTIST' },
+  { date: 'Released: August 5, 2002', title: 'IN MY PLACE' },
+  { date: 'Released: October 23, 2000', title: 'TROUBLE' },
+  { date: 'Released: June 26, 2000', title: 'YELLOW' },
+  { date: 'Released: March 6, 2000', title: 'SHIVER' },
+  { date: 'Released: October 11, 1999', title: 'BLUE ROOM EP' },
+  { date: 'Released: April 26, 1999', title: 'BROTHERS & SISTERS' },
+  { date: 'Released: May, 1998', title: 'SAFETY EP' }
 ];
 </script>
 
@@ -313,16 +366,16 @@ const singleImages = [
 .singles-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 15px;
-  width: 100%;
-  max-width: calc(100vw - 300px);
+  gap: 12px;
+  width: calc(100% - 200px);
+  max-width: 1100px;
   padding: 20px;
-  margin-left: 250px;
-  margin-right: 30px;
+  padding-left: 180px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .single-cell {
-  aspect-ratio: 1;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 12px;
@@ -332,18 +385,17 @@ const singleImages = [
   justify-content: center;
   transition: all 0.3s ease;
   cursor: pointer;
-  overflow: hidden;
+  overflow: visible;
   padding: 15px;
 }
 
 .single-content {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 .single-cell:hover {
@@ -356,35 +408,48 @@ const singleImages = [
 .single-image {
   width: 100%;
   aspect-ratio: 1;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   border-radius: 8px;
+  flex-shrink: 0;
 }
 
 .single-caption {
   text-align: center;
   color: #fff;
-  min-height: 50px;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+  padding: 5px 0;
+  flex-shrink: 0;
 }
 
 .single-date {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 4px;
-  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+  letter-spacing: 0.3px;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 .single-title {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: bold;
   color: #fff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-  letter-spacing: 0.8px;
-  line-height: 1.3;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
+  max-height: 2.4em;
+  overflow: hidden;
 }
 
 .solo-content,
