@@ -156,6 +156,27 @@
             </div>
           </div>
         </div>
+        <!-- Songs Grid for E -->
+        <div v-if="selectedLetter === 'E'" class="songs-grid">
+          <!-- Header Row -->
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <!-- Song Rows -->
+          <div 
+            v-for="(song, index) in songsLetterE" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -230,6 +251,17 @@ const songsLetterD = [
   { title: 'DEATH WILL NEVER CONQUER', album: 'VIVA LA VIDA' },
   { title: "DON'T LET IT BREAK YOUR HEART", album: 'MYLO XYLOTO' },
   { title: "DON'T PANIC", album: 'PARACHUTES' }
+];
+
+// Songs starting with E
+const songsLetterE = [
+  { title: 'EASY TO PLEASE', album: 'BROTHERS & SISTERS' },
+  { title: 'Eko', album: 'EVERYDAY LIFE' },
+  { title: 'END CREDITS', album: 'LIVE IN BUENOS AIRES' },
+  { title: 'EVERGLOW', album: 'A HEAD FULL OF DREAMS' },
+  { title: 'EVERY TEARDROP IS A WATERFALL', album: 'MYLO XYLOTO' },
+  { title: 'EVERYDAY LIFE', album: 'EVERYDAY LIFE' },
+  { title: "EVERYTHING'S NOT LOST", album: 'PARACHUTES' }
 ];
 
 const albumImages = [
