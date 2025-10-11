@@ -72,7 +72,27 @@
             {{ letter }}
           </button>
         </div>
-        <!-- Songs list will go here -->
+        <!-- Songs Grid -->
+        <div v-if="selectedLetter === 'A'" class="songs-grid">
+          <!-- Header Row -->
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <!-- Song Rows -->
+          <div 
+            v-for="(song, index) in songsLetterA" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -87,6 +107,32 @@ const activeTab = ref('ALBUMS');
 // Alphabet filter for SONGS tab
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 const selectedLetter = ref('A');
+
+// Songs starting with A
+const songsLetterA = [
+  { title: 'A HEAD FULL OF DREAMS', album: 'A HEAD FULL OF DREAMS' },
+  { title: 'A HOPEFUL TRANSMISSION', album: 'MYLO XYLOTO' },
+  { title: 'A L I E N S', album: 'KALEIDOSCOPE EP' },
+  { title: 'A MESSAGE', album: 'X&Y' },
+  { title: 'A RUSH OF BLOOD TO THE HEAD', album: 'A RUSH OF BLOOD TO THE HEAD' },
+  { title: 'A SKY FULL OF STARS', album: 'GHOST STORIES' },
+  { title: 'A SPELL A REBEL YELL', album: 'VOILET HILL' },
+  { title: 'A WHISPER', album: 'A RUSH OF BLOOD TO THE HEAD' },
+  { title: 'ADVENTURE OF A LIFETIME', album: 'A HEAD FULL OF DREAMS' },
+  { title: 'AETERNA', album: 'MOON MUSIC' },
+  { title: 'ALL I CAN THINK IS YOU', album: 'KALEIDOSCOPE EP' },
+  { title: 'ALL MY LOVE', album: 'MOON MUSIC' },
+  { title: 'ALL MY FRIENDS', album: 'A SKY FULL OF STARS EP' },
+  { title: 'ALWAYS IN MY HEAD', album: 'GHOST STORIES LIVE 2014' },
+  { title: 'AMAZING DAY', album: 'A HEAD FULL OF DREAMS' },
+  { title: 'AMOR ARGENTINA', album: 'LIVE IN BUENOS AIRES' },
+  { title: 'AMSTERDAM', album: 'A RUSH OF BLOOD TO THE HEAD' },
+  { title: 'ANIMALS', album: 'CLOCKS' },
+  { title: "ANOTHER'S ARMS", album: 'GHOST STORIES LIVE 2014' },
+  { title: 'ARABESQUE', album: 'EVERYDAY LIFE' },
+  { title: 'ARMY OF ONE', album: 'A HEAD FULL OF DREAMS' },
+  { title: 'ATLAS', album: 'ATLAS' }
+];
 
 const albumImages = [
   'moon.jpg',
@@ -527,6 +573,72 @@ const singleInfo = [
   border-color: #fd5f04;
   box-shadow: 0 0 15px rgba(253, 95, 4, 0.6);
   transform: scale(1.15);
+}
+
+/* Songs Grid Styles */
+.songs-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 1100px;
+  padding: 80px 20px 20px;
+  margin-left: 200px;
+}
+
+.song-cell {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 15px 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.song-cell.song-header {
+  background: rgba(253, 95, 4, 0.3);
+  border-color: rgba(253, 95, 4, 0.6);
+  cursor: default;
+  font-weight: 700;
+}
+
+.song-cell.song-header:hover {
+  background: rgba(253, 95, 4, 0.3);
+  border-color: rgba(253, 95, 4, 0.6);
+  transform: none;
+  box-shadow: none;
+}
+
+.song-cell:hover {
+  background: rgba(253, 95, 4, 0.2);
+  border-color: rgba(253, 95, 4, 0.5);
+  transform: translateX(5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.song-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  width: 100%;
+  align-items: center;
+}
+
+.song-title-col {
+  font-size: 0.95rem;
+  color: #fd5f04;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.song-album-col {
+  font-size: 0.95rem;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 /* Responsive styles */
