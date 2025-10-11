@@ -60,7 +60,19 @@
 
       <!-- SONGS Content -->
       <div v-if="activeTab === 'SONGS'" class="songs-content">
-        <!-- Songs content will go here -->
+        <!-- Alphabetical Filter -->
+        <div class="alphabet-filter">
+          <button
+            v-for="letter in alphabet"
+            :key="letter"
+            @click="selectedLetter = letter"
+            class="letter-button"
+            :class="{ 'active': selectedLetter === letter }"
+          >
+            {{ letter }}
+          </button>
+        </div>
+        <!-- Songs list will go here -->
       </div>
     </div>
   </section>
@@ -71,6 +83,10 @@ import { ref } from 'vue';
 
 const tabs = ['ALBUMS', 'SINGLES', 'SONGS'];
 const activeTab = ref('ALBUMS');
+
+// Alphabet filter for SONGS tab
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+const selectedLetter = ref('A');
 
 const albumImages = [
   'moon.jpg',
@@ -458,6 +474,59 @@ const singleInfo = [
   max-width: 1200px;
   padding: 20px;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Alphabet Filter Styles */
+.alphabet-filter {
+  position: absolute;
+  top: 20px;
+  left: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  z-index: 5;
+}
+
+.letter-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  flex-shrink: 0;
+}
+
+.letter-button:hover {
+  background: rgba(253, 95, 4, 0.5);
+  border-color: rgba(253, 95, 4, 0.8);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(253, 95, 4, 0.4);
+}
+
+.letter-button.active {
+  background: rgba(253, 95, 4, 0.9);
+  border-color: #fd5f04;
+  box-shadow: 0 0 15px rgba(253, 95, 4, 0.6);
+  transform: scale(1.15);
 }
 
 /* Responsive styles */
