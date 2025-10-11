@@ -93,6 +93,48 @@
             </div>
           </div>
         </div>
+        <!-- Songs Grid for B -->
+        <div v-if="selectedLetter === 'B'" class="songs-grid">
+          <!-- Header Row -->
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <!-- Song Rows -->
+          <div 
+            v-for="(song, index) in songsLetterB" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
+        <!-- Songs Grid for C -->
+        <div v-if="selectedLetter === 'C'" class="songs-grid">
+          <!-- Header Row -->
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <!-- Song Rows -->
+          <div 
+            v-for="(song, index) in songsLetterC" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -132,6 +174,30 @@ const songsLetterA = [
   { title: 'ARABESQUE', album: 'EVERYDAY LIFE' },
   { title: 'ARMY OF ONE', album: 'A HEAD FULL OF DREAMS' },
   { title: 'ATLAS', album: 'ATLAS' }
+];
+
+// Songs starting with B
+const songsLetterB = [
+  { title: 'BIGGER STRONGER', album: 'SAFETY EP & BLUE ROOM EP' },
+  { title: 'BIRDS', album: 'A HEAD FULL OF DREAMS' },
+  { title: 'BIUTYFUL', album: 'MUSIC OF THE SPHERES' },
+  { title: 'BROKEN', album: 'EVERYDAY LIFE' },
+  { title: 'BROTHERS & SISTERS', album: 'BROTHER & SISTERS, TROUBLE' }
+];
+
+// Songs starting with C
+const songsLetterC = [
+  { title: 'CAREFUL WHERE YOU STAND', album: 'SHIVER' },
+  { title: 'CEMETERIES OF LONDON', album: 'VIVA LA VIDA OR DEATH AND ALL HIS FRIENDS' },
+  { title: 'CHAMPION OF THE WORLD', album: 'EVERYDAY LIFE' },
+  { title: 'CHARLIE BROWN', album: 'MYLO XYLOTO, CHARLIE BROWN, LIVE 2012' },
+  { title: 'CHRISTMAS LIGHTS', album: 'MYLO XYLOTO, CHARLIE BROWN, LIVE 2012' },
+  { title: 'CHURCH', album: 'EVERYDAY LIFE' },
+  { title: 'CLOCKS', album: 'A RUSH OF BLOOD TO THE HEAD, LIVE 2003, LIVE 2012, CLOCKS' },
+  { title: 'COLORATURA', album: 'MUSIC OF THE SPHERES' },
+  { title: 'COLOUR SPECTRUM', album: 'A HEAD FULL OF DREAMS' },
+  { title: 'CRESTS OF WAVES', album: 'CLOCKS' },
+  { title: 'CRY CRY CRY', album: 'EVERYDAY LIFE' }
 ];
 
 const albumImages = [
