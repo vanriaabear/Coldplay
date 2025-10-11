@@ -177,6 +177,27 @@
             </div>
           </div>
         </div>
+        <!-- Songs Grid for F -->
+        <div v-if="selectedLetter === 'F'" class="songs-grid">
+          <!-- Header Row -->
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <!-- Song Rows -->
+          <div 
+            v-for="(song, index) in songsLetterF" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -262,6 +283,15 @@ const songsLetterE = [
   { title: 'EVERY TEARDROP IS A WATERFALL', album: 'MYLO XYLOTO' },
   { title: 'EVERYDAY LIFE', album: 'EVERYDAY LIFE' },
   { title: "EVERYTHING'S NOT LOST", album: 'PARACHUTES' }
+];
+
+// Songs starting with F
+const songsLetterF = [
+  { title: 'feelslikeimfallinginlove', album: 'MOON MUSIC' },
+  { title: 'FIX YOU', album: 'X&Y' },
+  { title: 'FIX YOU (VIDEO)', album: 'X&Y' },
+  { title: 'FOR YOU', album: 'SHIVER' },
+  { title: 'FUN', album: 'A HEAD FULL OF DREAMS' }
 ];
 
 const albumImages = [
