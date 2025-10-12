@@ -440,6 +440,7 @@ function getImageSrc(n) {
   .header-nav {
     right: 16px;
     gap: 8px;
+    flex-wrap: wrap;
   }
   .header-btn {
     padding: 6px 12px;
@@ -454,27 +455,39 @@ function getImageSrc(n) {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
+  .carousel-container {
+    padding: 15px;
+  }
 }
 
 /* Mobile breakpoint */
 @media (max-width: 600px) {
   .header {
-    height: 50px;
+    height: auto;
+    min-height: 50px;
+    padding: 8px 0;
   }
   .header-img {
-    height: 50px;
+    height: 60px;
   }
   .header-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     left: 12px;
+    letter-spacing: 1px;
   }
   .header-nav {
-    right: 12px;
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    padding: 8px 12px 0;
     gap: 6px;
+    justify-content: center;
   }
   .header-btn {
     padding: 5px 10px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     border-radius: 12px;
   }
   .footer {
@@ -486,45 +499,56 @@ function getImageSrc(n) {
   .background-section {
     min-height: 500px;
     padding: 20px 0;
+    margin-top: 0;
   }
   .profile-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 12px;
-    margin-top: 60px;
+    margin-top: 80px;
     padding: 0 12px;
   }
   .profile-card {
-    padding: 6px;
+    padding: 12px;
   }
   .profile-img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
   }
   .profile-name {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   .profile-role {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
   }
   .info-item {
-    font-size: 0.6rem;
+    font-size: 0.65rem;
   }
   .carousel-wrapper {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
   .carousel-column {
-    height: 300px;
+    height: 250px;
   }
   .carousel-container {
     padding: 12px;
+  }
+  .carousel-img {
+    height: 100px;
   }
 }
 
 /* Small mobile breakpoint */
 @media (max-width: 480px) {
+  .header {
+    min-height: 45px;
+  }
+  .header-title {
+    font-size: 1rem;
+  }
   .header-nav {
     gap: 4px;
+    padding: 6px 8px 0;
   }
   .header-btn {
     padding: 4px 8px;
@@ -532,37 +556,47 @@ function getImageSrc(n) {
   }
   .profile-grid {
     gap: 10px;
+    margin-top: 70px;
+  }
+  .profile-card {
+    padding: 10px;
   }
   .profile-img {
-    width: 45px;
-    height: 45px;
+    width: 55px;
+    height: 55px;
   }
   .profile-name {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
   }
   .profile-role {
+    font-size: 0.65rem;
+  }
+  .info-item {
     font-size: 0.6rem;
   }
   .carousel-column {
-    height: 250px;
+    height: 200px;
+  }
+  .carousel-img {
+    height: 80px;
   }
 }
 
 /* Extra small mobile breakpoint */
 @media (max-width: 400px) {
   .header {
-    height: 45px;
+    min-height: 40px;
   }
   .header-img {
-    height: 45px;
+    height: 50px;
   }
   .header-title {
-    font-size: 1rem;
+    font-size: 0.9rem;
     left: 8px;
   }
   .header-nav {
-    right: 8px;
     gap: 3px;
+    padding: 5px 8px 0;
   }
   .header-btn {
     padding: 3px 6px;
@@ -576,25 +610,32 @@ function getImageSrc(n) {
   }
   .profile-grid {
     gap: 8px;
+    margin-top: 65px;
   }
   .profile-card {
-    padding: 5px;
+    padding: 8px;
   }
   .profile-img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
   .profile-name {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
   .profile-role {
-    font-size: 0.55rem;
+    font-size: 0.6rem;
   }
   .info-item {
-    font-size: 0.55rem;
+    font-size: 0.58rem;
   }
   .carousel-column {
-    height: 200px;
+    height: 180px;
+  }
+  .carousel-img {
+    height: 70px;
+  }
+  .carousel-container {
+    padding: 10px;
   }
 }
 </style>

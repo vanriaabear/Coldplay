@@ -836,6 +836,10 @@ const singleInfo = [
 
 /* Responsive styles */
 @media (max-width: 768px) {
+  .music-section {
+    padding: 30px 0;
+  }
+
   .tab-container {
     top: 15px;
     left: 15px;
@@ -854,7 +858,8 @@ const singleInfo = [
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
     padding: 15px;
-    margin-left: 150px;
+    margin-left: 0;
+    max-width: 100%;
   }
   
   .album-cell.last-cell {
@@ -870,10 +875,13 @@ const singleInfo = [
   }
   
   .singles-grid {
-    grid-template-columns: repeat(3, 264px);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     padding: 15px;
-    margin-left: 150px;
+    margin-left: 0;
+    padding-left: 15px;
+    width: 100%;
+    max-width: 100%;
   }
   
   .single-date {
@@ -881,19 +889,170 @@ const singleInfo = [
   }
   
   .single-title {
+    font-size: 0.7rem;
+  }
+
+  .alphabet-filter {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 20px;
+    gap: 4px;
+    padding: 8px 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .letter-button {
+    width: 28px;
+    height: 28px;
     font-size: 0.75rem;
+  }
+
+  .songs-grid {
+    width: 90%;
+    padding: 20px 15px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .song-content {
+    gap: 15px;
+  }
+
+  .song-title-col,
+  .song-album-col {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .music-section {
+    padding: 20px 0;
+  }
+
+  .music-content {
+    padding: 10px;
+  }
+  
+  .tab-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    padding: 10px;
+  }
+  
+  .tab-button {
+    padding: 8px 14px;
+  }
+  
+  .tab-text {
+    font-size: 0.75rem;
+  }
+  
+  .tab-circle {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .albums-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 10px;
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .album-cell {
+    padding: 12px;
+  }
+  
+  .album-date {
+    font-size: 0.65rem;
+  }
+  
+  .album-title {
+    font-size: 0.85rem;
+  }
+  
+  .singles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+    margin-left: 0;
+    padding-left: 10px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .single-cell {
+    padding: 10px;
+  }
+  
+  .single-date {
+    font-size: 0.6rem;
+  }
+  
+  .single-title {
+    font-size: 0.7rem;
+  }
+
+  .alphabet-filter {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 15px;
+    gap: 3px;
+    padding: 8px 10px;
+    flex-wrap: wrap;
+  }
+
+  .letter-button {
+    width: 26px;
+    height: 26px;
+    font-size: 0.7rem;
+  }
+
+  .songs-grid {
+    width: 100%;
+    padding: 10px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .song-cell {
+    padding: 12px 15px;
+  }
+
+  .song-content {
+    gap: 10px;
+    grid-template-columns: 1fr;
+  }
+
+  .song-title-col,
+  .song-album-col {
+    font-size: 0.8rem;
+  }
+
+  .song-album-col {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.85);
   }
 }
 
 @media (max-width: 480px) {
   .music-section {
-    padding: 60px 15px 15px;
+    padding: 15px 0;
   }
   
   .tab-container {
-    top: 10px;
-    left: 10px;
-    gap: 8px;
+    gap: 6px;
+    padding: 8px;
   }
   
   .tab-button {
@@ -905,15 +1064,18 @@ const singleInfo = [
   }
   
   .tab-circle {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
   }
   
   .albums-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 10px;
+    padding: 8px;
+  }
+
+  .album-cell {
     padding: 10px;
-    margin-left: 100px;
   }
   
   .album-date {
@@ -921,22 +1083,84 @@ const singleInfo = [
   }
   
   .album-title {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
   
   .singles-grid {
-    grid-template-columns: repeat(2, 264px);
+    grid-template-columns: 1fr;
     gap: 10px;
+    padding: 8px;
+  }
+
+  .single-cell {
     padding: 10px;
-    margin-left: 100px;
   }
   
   .single-date {
-    font-size: 0.55rem;
+    font-size: 0.58rem;
   }
   
   .single-title {
+    font-size: 0.68rem;
+  }
+
+  .alphabet-filter {
+    gap: 2px;
+    padding: 6px 8px;
+  }
+
+  .letter-button {
+    width: 24px;
+    height: 24px;
+    font-size: 0.65rem;
+  }
+
+  .songs-grid {
+    padding: 8px;
+  }
+
+  .song-cell {
+    padding: 10px 12px;
+  }
+
+  .song-title-col {
+    font-size: 0.75rem;
+  }
+
+  .song-album-col {
     font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .tab-button {
+    padding: 5px 10px;
+  }
+
+  .tab-text {
+    font-size: 0.65rem;
+  }
+
+  .album-title {
+    font-size: 0.75rem;
+  }
+
+  .single-title {
+    font-size: 0.65rem;
+  }
+
+  .letter-button {
+    width: 22px;
+    height: 22px;
+    font-size: 0.6rem;
+  }
+
+  .song-title-col {
+    font-size: 0.7rem;
+  }
+
+  .song-album-col {
+    font-size: 0.65rem;
   }
 }
 </style>
