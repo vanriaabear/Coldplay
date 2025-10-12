@@ -219,6 +219,27 @@
             </div>
           </div>
         </div>
+        <!-- Songs Grid for H -->
+        <div v-if="selectedLetter === 'H'" class="songs-grid">
+          <!-- Header Row -->
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <!-- Song Rows -->
+          <div 
+            v-for="(song, index) in songsLetterH" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -324,6 +345,18 @@ const songsLetterG = [
   { title: 'GRAVITY', album: 'TALK' },
   { title: 'GREEN EYES', album: 'A RUSH BLOOD TO THE HEAD' },
   { title: 'GUNS', album: 'EVERYDAY LIFE' }
+];
+
+// Songs starting with H
+const songsLetterH = [
+  { title: 'HELP IS ROUND THE CORNER', album: 'YELLOW' },
+  { title: 'HIGH SPEED', album: 'PARACHUTES' },
+  { title: 'HIGHER POWER', album: 'MUSIC OF THE SPHERES' },
+  { title: "HOW YOU SEE THE WORLD - LIVE AT EARL'S COURT", album: 'THE HARDEST PART' },
+  { title: 'HUMANKIND', album: 'MUSIC OF THE SPHERES' },
+  { title: 'HURTS LIKE HEAVEN', album: 'MYLO XYLOTO' },
+  { title: 'HYMN FOR THE WEEKEND', album: 'A HEAD FULL OF DREAMS' },
+  { title: 'HYNOTISED', album: 'KALEIDOSOPE EP' }
 ];
 
 const albumImages = [
