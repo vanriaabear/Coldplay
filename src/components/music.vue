@@ -262,6 +262,24 @@
             </div>
           </div>
         </div>
+        <div v-if="selectedLetter === 'J'" class="songs-grid">
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <div 
+            v-for="(song, index) in songsLetterJ" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -389,6 +407,12 @@ const songsLetterI = [
   { title: 'IN MY PLACE', album: 'A RUSH OF BLOOD TO THE HEAD' },
   { title: 'INK', album: 'GHOST STORIES LIVE 2014' },
   { title: 'INVISIBLE MAN REMIX', album: 'MYLO XYLOTO' }
+];
+
+//Songs starting with J
+const songsLetterJ = [
+  {title: 'JUPiTER', album: 'MOON MUSIC'}
+
 ];
 
 const albumImages = [
@@ -686,11 +710,10 @@ const singleInfo = [
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 12px;
-  width: calc(100% - 200px);
+  width: calc(100% - 140px);
   max-width: 1100px;
-  padding: 20px;
-  padding-left: 180px;
-  margin-left: auto;
+  padding: 80px 20px 20px;
+  margin-left: 140px;
   margin-right: auto;
 }
 
@@ -837,8 +860,8 @@ const singleInfo = [
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 50%;
-  max-width: 700px;
+  width: 557.5px;
+  max-width: 557.5px;
   padding: 80px 20px 20px;
   margin-left: auto;
   margin-right: 20px;
@@ -942,9 +965,8 @@ const singleInfo = [
   .singles-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    padding: 15px;
+    padding: 80px 15px 15px;
     margin-left: 0;
-    padding-left: 15px;
     width: 100%;
     max-width: 100%;
   }
@@ -1048,9 +1070,8 @@ const singleInfo = [
   .singles-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    padding: 10px;
+    padding: 80px 10px 10px;
     margin-left: 0;
-    padding-left: 10px;
     width: 100%;
     max-width: 100%;
   }
@@ -1154,7 +1175,7 @@ const singleInfo = [
   .singles-grid {
     grid-template-columns: 1fr;
     gap: 10px;
-    padding: 8px;
+    padding: 80px 8px 8px;
   }
 
   .single-cell {
@@ -1182,6 +1203,7 @@ const singleInfo = [
 
   .songs-grid {
     padding: 8px;
+    
   }
 
   .song-cell {
