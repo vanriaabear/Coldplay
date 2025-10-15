@@ -240,6 +240,28 @@
             </div>
           </div>
         </div>
+
+        <!-- Songs Grid for I -->
+        <div v-if="selectedLetter === 'I'" class="songs-grid">
+          <!-- Header Row -->
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <!-- Song Rows -->
+          <div 
+            v-for="(song, index) in songsLetterI" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -357,6 +379,16 @@ const songsLetterH = [
   { title: 'HURTS LIKE HEAVEN', album: 'MYLO XYLOTO' },
   { title: 'HYMN FOR THE WEEKEND', album: 'A HEAD FULL OF DREAMS' },
   { title: 'HYNOTISED', album: 'KALEIDOSOPE EP' }
+];
+
+// Songs starting with I
+const songsLetterI = [
+  { title: 'I BLOOM BLAUM', album: 'IN MY PLACE' },
+  { title: 'I RAN AWAY', album: 'THE SCIENTIST' },
+  { title: 'iAAM', album: 'MOON MUSIC' },
+  { title: 'IN MY PLACE', album: 'A RUSH OF BLOOD TO THE HEAD' },
+  { title: 'INK', album: 'GHOST STORIES LIVE 2014' },
+  { title: 'INVISIBLE MAN REMIX', album: 'MYLO XYLOTO' }
 ];
 
 const albumImages = [
