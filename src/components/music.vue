@@ -337,6 +337,44 @@
             </div>
           </div>
         </div>
+
+        <div v-if="selectedLetter === 'N'" class="songs-grid">
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <div 
+            v-for="(song, index) in songsLetterN" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
+
+        <div v-if="selectedLetter === 'O'" class="songs-grid">
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <div 
+            v-for="(song, index) in songsLetterO" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -507,6 +545,24 @@ const songsLetterM = [
   { title: 'MURDER', album: 'GOD PUT A SMILE UPON YOUR FACE' },
   { title: 'MY UNIVERSE', album: 'MUSIC OF THE SPHERES' },
   { title: 'MYLO XYLOTO', album: 'MYLO XYLOTO' }
+];
+
+// Songs starting with N
+const songsLetterN = [
+  { title: 'NO MORE KEEPING MY FEET ON THE GROUND', album: 'SAFETY EP' },
+  { title: "NOW MY FEET WON'T TOUCH THE GROUND", album: "PROSPEKT'S MARCH" }
+];
+
+// Songs starting with O
+const songsLetterO = [
+  { title: 'O', album: 'GHOST STORIES' },
+  { title: 'O (REPRISE)', album: 'A SKY FULL OF STARS EP' },
+  { title: 'OCEANS', album: 'GHOST STORIES' },
+  { title: 'OLD FRIENDS', album: 'EVERYDAY LIFE' },
+  { title: 'ONE  I LOVE', album: 'IN MY PLACE, LIVE IN 2003' },
+  { title: 'ONE WORLD', album: 'MOON MUSIC' },
+  { title: 'ONLY SUPERSTITION', album: 'BROTHERS & SISTERS' },
+  { title: 'ORPHANS', album: 'EVERYDAY LIFE' }
 ];
 
 const albumImages = [
