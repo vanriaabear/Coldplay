@@ -318,6 +318,25 @@
             </div>
           </div>
         </div>
+
+        <div v-if="selectedLetter === 'M'" class="songs-grid">
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <div 
+            v-for="(song, index) in songsLetterM" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -472,6 +491,22 @@ const songsLetterL = [
   { title: 'LOVER IN JAPAN (OSAKA SUN MIX)', album: "PROSPEKT'S MARCH" },
   { title: 'LOVERS IN JAPAN / REIGN OF LOVE', album: 'VIVA LA VIDA OR DEATH AND ALL HIS FRIENDS' },
   { title: 'LOW', album: 'X&Y' }
+];
+
+// Songs starting with M
+const songsLetterM = [
+  { title: 'M.M.I.X', album: 'MYLO XYLOTO' },
+  { title: 'MAGIC', album: 'MAGIC, MAGIC, MAGIC' },
+  { title: 'MAJOR MINUS', album: 'MYLO XYLOTO' },
+  { title: 'MIDNIGHT', album: 'GHOST STORIES LIVE 2014' },
+  { title: 'MIRACLES', album: 'MIRACLES' },
+  { title: 'MIRACLES (SOMEONE SPECIAL) - COLDPLAY & BIG SEAN', album: 'KALEIDOSCOPE EP' },
+  { title: 'MOON MUSIC', album: 'MOON MUSIC' },
+  { title: 'MOSES', album: 'LIVE 2003' },
+  { title: 'MOVING TO MARS', album: 'EVERY TEARDROP IS A WATERFALL EP' },
+  { title: 'MURDER', album: 'GOD PUT A SMILE UPON YOUR FACE' },
+  { title: 'MY UNIVERSE', album: 'MUSIC OF THE SPHERES' },
+  { title: 'MYLO XYLOTO', album: 'MYLO XYLOTO' }
 ];
 
 const albumImages = [
