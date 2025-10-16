@@ -556,7 +556,7 @@ const singleInfo = [
 
 <style scoped>
 .music-section {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   background-image: url('/Coldplay/images/music_background.jpg');
   background-size: cover;
@@ -998,7 +998,7 @@ const singleInfo = [
 
   .songs-grid {
     width: 90%;
-    padding: 20px 15px;
+    padding: 80px 15px 20px;
     margin-left: 0;
     margin-right: 0;
   }
@@ -1106,7 +1106,7 @@ const singleInfo = [
 
   .songs-grid {
     width: 100%;
-    padding: 10px;
+    padding: 80px 10px 10px;
     margin-left: 0;
     margin-right: 0;
   }
@@ -1202,7 +1202,7 @@ const singleInfo = [
   }
 
   .songs-grid {
-    padding: 8px;
+    padding: 80px 8px 8px;
     
   }
 
