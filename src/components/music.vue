@@ -299,6 +299,25 @@
             </div>
           </div>
         </div>
+
+        <div v-if="selectedLetter === 'L'" class="songs-grid">
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <div 
+            v-for="(song, index) in songsLetterL" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -437,6 +456,22 @@ const songsLetterJ = [
 // Songs starting with K
 const songsLetterK = [
   { title: 'KALEIDOSCOPE', album: 'A HEAD FULL OF DREAMS' }
+];
+
+// Songs starting with L
+const songsLetterL = [
+  { title: 'LET SOMEBODY GO', album: 'MUSIC OF THE SPHERES' },
+  { title: 'LIFE IN TECHNICOLOR', album: 'VIVA LA VIDA OR DEATH AND ALL HIS FRIENDS' },
+  { title: 'LIFE IN TECHNICOLOR II', album: 'LIFE IN TECHNICOLOUR II' },
+  { title: 'LIFE IN TECHNICOLOR II (LIVE @ THE 02, LONDON)', album: 'LIFE IN TECHNICOLOUR II' },
+  { title: 'LIFE IS FOR LIVING', album: 'PARACHUTES' },
+  { title: 'LOST!', album: 'VIVA LA VIDA OR DEATH AND ALL HIS FRIENDS' },
+  { title: 'LOST+', album: "PROSPEKT'S MARCH" },
+  { title: 'LOST?', album: "PROSPEKT'S MARCH" },
+  { title: 'LOST@', album: "PROSPEKT'S MARCH" },
+  { title: 'LOVER IN JAPAN (OSAKA SUN MIX)', album: "PROSPEKT'S MARCH" },
+  { title: 'LOVERS IN JAPAN / REIGN OF LOVE', album: 'VIVA LA VIDA OR DEATH AND ALL HIS FRIENDS' },
+  { title: 'LOW', album: 'X&Y' }
 ];
 
 const albumImages = [
