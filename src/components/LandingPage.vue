@@ -157,7 +157,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 60px;
   overflow: hidden;
   z-index: 1000;
@@ -165,7 +165,7 @@
   padding: 0;
 }
 .header-img {
-  width: 100%;
+  width: 100vw;
   height: 70px;
   object-fit: cover;
   display: block;
@@ -215,7 +215,7 @@
   color: #222;
 }
 .landing-bg {
-  width: 100%;
+  width: 100vw;
   height: 600px;
   background-image: url('/images/coldplay_landing2.jpg');
   background-size: cover;
@@ -226,14 +226,14 @@
   padding: 0;
 }
 .footer {
-  width: 100%;
+  width: 100vw;
   height: 50px;
   overflow: hidden;
   margin: 0;
   padding: 0;
 }
 .footer-img {
-  width: 100%;
+  width: 100vw;
   height: 60px;
   object-fit: cover;
   display: block;
@@ -242,7 +242,7 @@
   padding: 0;
 }
 .info-section {
-  width: 100%;
+  width: 100vw;
   min-height: 300px;
   background: #00061d;
   color: #fff;

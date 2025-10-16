@@ -280,6 +280,25 @@
             </div>
           </div>
         </div>
+
+        <div v-if="selectedLetter === 'K'" class="songs-grid">
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <div 
+            v-for="(song, index) in songsLetterK" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -413,6 +432,11 @@ const songsLetterI = [
 const songsLetterJ = [
   {title: 'JUPiTER', album: 'MOON MUSIC'}
 
+];
+
+// Songs starting with K
+const songsLetterK = [
+  { title: 'KALEIDOSCOPE', album: 'A HEAD FULL OF DREAMS' }
 ];
 
 const albumImages = [
@@ -556,7 +580,7 @@ const singleInfo = [
 
 <style scoped>
 .music-section {
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
   background-image: url('/Coldplay/images/music_background.jpg');
   background-size: cover;

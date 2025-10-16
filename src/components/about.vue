@@ -153,7 +153,7 @@ function getImageSrc(n) {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 60px;
   overflow: hidden;
   z-index: 1000;
@@ -161,7 +161,7 @@ function getImageSrc(n) {
   padding: 0;
 }
 .header-img {
-  width: 100%;
+  width: 100vw;
   height: 70px;
   object-fit: cover;
   display: block;
@@ -213,7 +213,7 @@ function getImageSrc(n) {
 }
 
 .background-section {
-  width: 100%;
+  width: 100vw;
   min-height: 600px;
   background-image: url('/images/aboutt_bg.jpg'), url('/images/sun.jpg');
   background-size: cover, 120%;
@@ -415,14 +415,14 @@ function getImageSrc(n) {
 }
 
 .footer {
-  width: 100%;
+  width: 100vw;
   height: 50px;
   overflow: hidden;
   margin: 0;
   padding: 0;
 }
 .footer-img {
-  width: 100%;
+  width: 100vw;
   height: 60px;
   object-fit: cover;
   display: block;
