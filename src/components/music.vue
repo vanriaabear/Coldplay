@@ -483,6 +483,60 @@
             </div>
           </div>
         </div>
+        <div v-if="selectedLetter === 'W'" class="songs-grid">
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <div 
+            v-for="(song, index) in songsLetterW" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
+        <div v-if="selectedLetter === 'X'" class="songs-grid">
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <div 
+            v-for="(song, index) in songsLetterX" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
+        <div v-if="selectedLetter === 'Y'" class="songs-grid">
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <div 
+            v-for="(song, index) in songsLetterY" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -732,6 +786,25 @@ const songsLetterU = [
 const songsLetterV = [
   { title: 'VIOLET HILL', album: 'VIVA LA VIDA OR DEATH AND ALL HIS FRIENDS' },
   { title: 'VIVA LA VIDA', album: 'VIVA LA VID OR DEATH AND ALL HIS FREINDS, VIVA LA VIDA, LIVE 2012, LEFTRIGHTLEFTRIGHTLEFT' }
+];
+
+const songsLetterW = [
+  { title: 'WARNING SIGN', album: 'A RSH OF BLOOD TO THE HEAD' },
+  { title: 'WE NEVER CHANGE', album: 'PARACHUTES' },
+  { title: 'WE PRAY', album: 'MOON MUSIC' },
+  { title: 'WHAT IF', album: 'X&Y' },
+  { title: 'WHEN I NEED A FRIEND', album: 'EVERYDAY LIFE' },
+  { title: 'WHITE SHADOWS', album: 'X&Y' },
+  { title: 'WOTW / POTP', album: 'EVERYDAY LIFE' }
+];
+
+const songsLetterX = [
+  { title: 'X&Y', album: 'X&Y' }
+];
+
+const songsLetterY = [
+  { title: 'YELLOW', album: 'PARACHUTES' },
+  { title: 'YES', album: 'VIVA LA VIDA OR DEATH AND ALL HIS FRIENDS' }
 ];
 
 const albumImages = [
