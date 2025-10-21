@@ -429,6 +429,24 @@
             </div>
           </div>
         </div>
+        <div v-if="selectedLetter === 'T'" class="songs-grid">
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <div 
+            v-for="(song, index) in songsLetterT" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -650,6 +668,21 @@ const songsLetterS = [
   { title: 'SUCH A RUSH', album: 'SAFETY EP' },
   { title: 'SUNRISE', album: 'EVERYDAY LIFE' },
   { title: 'SWALLOWED IN THE SEA', album: 'X&Y' }
+];
+
+const songsLetterT = [
+  { title: 'TALK', album: 'X&Y' },
+  { title: 'THE GOLDRUSH', album: 'LIFE IN TECHNICOLOUR II' },
+  { title: 'THE HARDEST PART', album: 'X&Y' },
+  { title: 'THE HARDEST PART / POSTCARDS FROM FAR AWAY', album: 'X&Y' },
+  { title: 'THE SCIENTIST', album: 'A RUSH OF BLOOD TO THE HEAD' },
+  { title: 'THE WORLD TURNED UPSIDE DOWN', album: 'X&Y' },
+  { title: "THINGS I DONT UNDERSTAND", album: 'SPEED OF SOUND' },
+  { title: "'Til Kindom Come", album: 'X&Y' },
+  { title: 'TROUBLE', album: 'PARACHUTES' },
+  { title: 'TROUBLE IN TOWN', album: 'EVERYDAY LIFE' },
+  { title: 'TRUE LOVE', album: 'TRUE LOVE' },
+  { title: 'TWISTED LOGIC', album: 'X&Y' }
 ];
 
 const albumImages = [
