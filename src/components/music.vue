@@ -411,6 +411,24 @@
             </div>
           </div>
         </div>
+        <div v-if="selectedLetter === 'S'" class="songs-grid">
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <div 
+            v-for="(song, index) in songsLetterS" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -614,6 +632,24 @@ const songsLetterP = [
 
 const songsLetterR = [
   { title: 'RAINY DAY', album: "PROSPEKT'S MARCH" }
+];
+
+const songsLetterS = [
+  { title: 'SEE YOU SOON', album: 'BLUE ROOM EP' },
+  { title: 'SHIVER', album: 'PARACHUTES' },
+  { title: "SHIVER (JO WHILEY'S LUNCHTIME SOCIAL)", album: 'PARACHUTES' },
+  { title: 'SLEEPING SUN', album: 'TALK' },
+  { title: 'SOMETHING JUSTLIKE THIS', album: 'KALEIDOSCOPE EP' },
+  { title: 'SOMETHING JUST LIKE THIS (TOKYO REMIX) - COLDPLAY & THE CHAINSMOKERS', album: 'SOMETHING JUST LIKE THIS' },
+  { title: 'بنی آدم', album: 'EVERYDAY LIFE' },
+  { title: 'SPARKS', album: 'PARACHUTES' },
+  { title: 'SPEED OF SOUND', album: 'X&Y' },
+  { title: 'SPIES', album: 'PARACHUTES' },
+  { title: 'SQUARE ONE', album: 'X&Y' },
+  { title: 'STRAWBERRY SWING', album: 'VIVA LA VIDA OR DEATH AND ALL HIS FRIENDS' },
+  { title: 'SUCH A RUSH', album: 'SAFETY EP' },
+  { title: 'SUNRISE', album: 'EVERYDAY LIFE' },
+  { title: 'SWALLOWED IN THE SEA', album: 'X&Y' }
 ];
 
 const albumImages = [
