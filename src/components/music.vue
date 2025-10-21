@@ -447,6 +447,42 @@
             </div>
           </div>
         </div>
+        <div v-if="selectedLetter === 'U'" class="songs-grid">
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <div 
+            v-for="(song, index) in songsLetterU" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
+        <div v-if="selectedLetter === 'V'" class="songs-grid">
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <div 
+            v-for="(song, index) in songsLetterV" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -683,6 +719,19 @@ const songsLetterT = [
   { title: 'TROUBLE IN TOWN', album: 'EVERYDAY LIFE' },
   { title: 'TRUE LOVE', album: 'TRUE LOVE' },
   { title: 'TWISTED LOGIC', album: 'X&Y' }
+];
+
+const songsLetterU = [
+  { title: 'U.F.O', album: 'MYLO XYLOTO, UP WITH THE BIRDS' },
+  { title: 'UP IN THE FLAMES', album: 'MYLO XYLOTO, LIVE 2012' },
+  { title: 'UP WITH THE BIRDS', album: 'MYLO XYLOTO, UP WITH THE BIRDS' },
+  { title: 'UP&UP', album: 'A HEAD FULL OF DREAMS' },
+  { title: 'US AGAINST THE WORLD', album: 'MYLO XYLOTO, LIVE 2012' }
+];
+
+const songsLetterV = [
+  { title: 'VIOLET HILL', album: 'VIVA LA VIDA OR DEATH AND ALL HIS FRIENDS' },
+  { title: 'VIVA LA VIDA', album: 'VIVA LA VID OR DEATH AND ALL HIS FREINDS, VIVA LA VIDA, LIVE 2012, LEFTRIGHTLEFTRIGHTLEFT' }
 ];
 
 const albumImages = [
