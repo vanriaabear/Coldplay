@@ -393,6 +393,24 @@
             </div>
           </div>
         </div>
+        <div v-if="selectedLetter === 'R'" class="songs-grid">
+          <div class="song-cell song-header">
+            <div class="song-content">
+              <div class="song-title-col">TITLE</div>
+              <div class="song-album-col">ALBUM</div>
+            </div>
+          </div>
+          <div 
+            v-for="(song, index) in songsLetterR" 
+            :key="index" 
+            class="song-cell"
+          >
+            <div class="song-content">
+              <div class="song-title-col">{{ song.title }}</div>
+              <div class="song-album-col">{{ song.album }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -592,6 +610,10 @@ const songsLetterP = [
   { title: 'PRINCESS OF CHINA', album: 'MYLO XYLOTO' },
   { title: 'PROOF', album: 'SPEED OF SOUND' },
   { title: "PROSPEKT'S MARCH / POPPYFIELDS", album: "PROSPEKT'S MARCH" }
+];
+
+const songsLetterR = [
+  { title: 'RAINY DAY', album: "PROSPEKT'S MARCH" }
 ];
 
 const albumImages = [
