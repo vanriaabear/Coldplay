@@ -69,11 +69,25 @@
         </div>
       </div>
 
-      <!-- LYRICS Tab Placeholder -->
+      <!-- LYRICS Tab: vertical split -->
       <div v-if="activeTab === 'LYRICS' && selectedSongIndex !== null" class="lyrics-tab">
-        <div class="lyrics-header">{{ currentAlbumTitle }}</div>
-        <div class="lyrics-subheader">{{ currentSongTitle }}</div>
-        <div class="lyrics-placeholder">Lyrics will be displayed here.</div>
+        <div class="lyrics-layout">
+          <div class="lyrics-left">
+            <div class="lyrics-header">{{ currentSongTitle }}</div>
+            <div class="lyrics-subheader">{{ currentAlbumDate }}</div>
+            <img 
+              :src="`/Coldplay/images/${albumImages[selectedAlbumIndex]}`" 
+              :alt="currentAlbumTitle" 
+              class="lyrics-cover"
+            />
+          </div>
+          <div class="lyrics-right">
+            <div v-if="currentSongLyrics.length" class="lyrics-content">
+              <div v-for="(line, i) in currentSongLyrics" :key="i" class="lyric-line">{{ line }}</div>
+            </div>
+            <div v-else class="lyrics-placeholder">Lyrics coming soon.</div>
+          </div>
+        </div>
       </div>
 
       <!-- SINGLES Grid -->
@@ -622,6 +636,51 @@ const currentSongTitle = computed(() => {
     return moonTracks[selectedSongIndex.value];
   }
   return '';
+});
+
+const currentAlbumDate = computed(() => {
+  return selectedAlbumIndex.value !== null ? albumInfo[selectedAlbumIndex.value].date : '';
+});
+
+// Lyrics data: currently only for Moon Music track 01
+const lyricsData = {
+  0: { // album index 0: Moon Music
+    0: [
+      'Once upon a time',
+      'I tried to get myself together',
+      'Be more like the sky and welcome',
+      'Every kind of weather',
+      'Be more eagle-like and',
+      'Find the flight in every feather',
+      '',
+      'Once upon a time',
+      'But I’m still trying to get better',
+      'Maybe I’m just crazy',
+      'I should just be a brick in the wall',
+      'Sit and watch the t.v.',
+      'Blame everyone else for it all',
+      '',
+      'But I’m trying to trust in the Heavens above',
+      'And I’m trying to trust in a world full of love',
+      'Fire and water and constantly dream',
+      'Of the balance of things',
+      'And the music between',
+      '',
+      'If there’s anyone out there',
+      'I’m close to the end',
+      'If there’s anyone out there',
+      'I just need a friend',
+    ],
+  },
+};
+
+const currentSongLyrics = computed(() => {
+  const a = selectedAlbumIndex.value;
+  const s = selectedSongIndex.value;
+  if (a === null || s === null) return [];
+  const lines = lyricsData[a]?.[s] || [];
+  // Return each non-empty line as its own rendered line
+  return lines.filter(l => l.trim() !== '');
 });
 
 // Alphabet filter for SONGS tab
@@ -1224,17 +1283,16 @@ const singleInfo = [
   align-items: center;
   gap: 12px;
   padding: 12px 16px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  border-radius: 0;
+  background: transparent;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .track-row:hover {
-  background: rgba(253, 95, 4, 0.25);
-  border-color: rgba(253, 95, 4, 0.6);
-  transform: translateY(-2px);
+  background: transparent;
+  transform: translateY(-1px);
 }
 
 .track-col {
@@ -1267,6 +1325,26 @@ const singleInfo = [
   margin-top: 20px;
 }
 
+.lyrics-layout {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+}
+
+.lyrics-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  margin-left: 16px;
+}
+
+.lyrics-right {
+  width: 100%;
+}
+
 .lyrics-header {
   color: #fff;
   font-size: 1.1rem;
@@ -1282,6 +1360,25 @@ const singleInfo = [
 .lyrics-placeholder {
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.95rem;
+}
+
+.lyrics-content p {
+  text-align: justify;
+  margin: 0 0 12px 0;
+}
+
+.lyrics-cover {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.lyric-line {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 300;
+  line-height: 1.5;
+  margin-bottom: 6px;
 }
 
 .singles-grid {
