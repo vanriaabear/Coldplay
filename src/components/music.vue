@@ -962,6 +962,21 @@ const lyricsData = {
       'Don’t ever let them go',
       'All the good good feelings',
     ],
+    5: [
+      'As much as I could',
+      'As much as I tried',
+      'I just couldn’t seem to find the light',
+      'it glows in your eyes',
+      'everything that lives',
+      'all the stars in the sky',
+      'to all of us.',
+      'No, don’t give up',
+      'storms pass, love lasts, it all goes by so fast.',
+      'when it looked like the sun',
+      'wasn’t going to shine anymore',
+      'God put a rainbow in the clouds',
+      'God put a rainbow in the clouds',
+    ],
   },
 };
 
