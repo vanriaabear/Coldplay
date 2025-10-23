@@ -22,6 +22,7 @@
           :key="index" 
           class="album-cell"
           :class="{ 'last-cell': index === 16 }"
+          @click="openAlbumDetail(index)"
         >
           <div class="album-content">
             <img 
@@ -34,6 +35,19 @@
               <div class="album-title">{{ albumInfo[index].title }}</div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- ALBUM DETAIL Tab Content (simple placeholder, to be designed later) -->
+      <div v-if="activeTab === 'DETAIL' && selectedAlbumIndex !== null" class="album-detail-tab">
+        <div class="album-detail-content">
+          <div class="album-detail-date">{{ albumInfo[selectedAlbumIndex].date }}</div>
+          <div class="album-detail-title">{{ albumInfo[selectedAlbumIndex].title }}</div>
+          <img
+            :src="`/Coldplay/images/${albumImages[selectedAlbumIndex]}`"
+            :alt="albumInfo[selectedAlbumIndex].title"
+            class="album-detail-image"
+          />
         </div>
       </div>
 
@@ -545,8 +559,14 @@
 <script setup>
 import { ref } from 'vue';
 
-const tabs = ['ALBUMS', 'SINGLES', 'SONGS'];
+const tabs = ['ALBUMS', 'SINGLES', 'SONGS', 'DETAIL'];
 const activeTab = ref('ALBUMS');
+const selectedAlbumIndex = ref(null);
+
+function openAlbumDetail(index) {
+  selectedAlbumIndex.value = index;
+  activeTab.value = 'DETAIL';
+}
 
 // Alphabet filter for SONGS tab
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -1096,6 +1116,40 @@ const singleInfo = [
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   letter-spacing: 1px;
   line-height: 1.2;
+}
+
+.album-detail-tab {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.album-detail-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.album-detail-date {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+}
+
+.album-detail-title {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.album-detail-image {
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 .singles-grid {
