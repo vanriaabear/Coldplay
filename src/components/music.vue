@@ -1394,6 +1394,8 @@ const singleInfo = [
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 24px;
+  height: calc(100vh - 200px);
+  max-height: calc(100vh - 200px);
 }
 
 .lyrics-left {
@@ -1401,23 +1403,30 @@ const singleInfo = [
   flex-direction: column;
   gap: 12px;
   align-items: center;
-  margin-left: 16px;
+  justify-content: center;
+  height: 100%;
+  margin-left: 0;
+  text-align: center;
 }
 
 .lyrics-right {
   width: 100%;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .lyrics-header {
   color: #fff;
   font-size: 1.1rem;
   font-weight: 800;
+  text-align: center;
 }
 
 .lyrics-subheader {
   color: rgba(255, 255, 255, 0.9);
   font-size: 1rem;
   font-weight: 700;
+  text-align: center;
 }
 
 .lyrics-placeholder {
