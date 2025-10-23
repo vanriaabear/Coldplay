@@ -48,7 +48,32 @@
             :alt="albumInfo[selectedAlbumIndex].title"
             class="album-detail-image"
           />
+
+          <!-- Moon Music Track Grid: only for first album -->
+          <div v-if="selectedAlbumIndex === 0" class="track-grid">
+            <div 
+              v-for="(track, i) in moonTracks" 
+              :key="i" 
+              class="track-row"
+              @click="openLyrics(i)"
+            >
+              <div class="track-col track-num">
+                {{ (i + 1).toString().padStart(2, '0') }}
+              </div>
+              <div class="track-col track-title">
+                {{ track }}
+              </div>
+              <div class="track-col track-lyrics">Lyrics</div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- LYRICS Tab Placeholder -->
+      <div v-if="activeTab === 'LYRICS' && selectedSongIndex !== null" class="lyrics-tab">
+        <div class="lyrics-header">{{ currentAlbumTitle }}</div>
+        <div class="lyrics-subheader">{{ currentSongTitle }}</div>
+        <div class="lyrics-placeholder">Lyrics will be displayed here.</div>
       </div>
 
       <!-- SINGLES Grid -->
@@ -557,16 +582,47 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
-const tabs = ['ALBUMS', 'SINGLES', 'SONGS', 'DETAIL'];
+const tabs = ['ALBUMS', 'SINGLES', 'SONGS', 'DETAIL', 'LYRICS'];
 const activeTab = ref('ALBUMS');
 const selectedAlbumIndex = ref(null);
+const selectedSongIndex = ref(null);
 
 function openAlbumDetail(index) {
   selectedAlbumIndex.value = index;
   activeTab.value = 'DETAIL';
 }
+
+// Moon Music track list used in the 3-column grid for the first album
+const moonTracks = [
+  'MOON MUSiC',
+  'feelslikeimfallinginlove',
+  'WE PRAY',
+  'JUPiTER',
+  'GOOD FEELINGS',
+  'RAINBOW',
+  'iAAM',
+  'AETERNA',
+  'ALL MY LOVE',
+  'ONE WORLD',
+];
+
+function openLyrics(trackIndex) {
+  selectedSongIndex.value = trackIndex;
+  activeTab.value = 'LYRICS';
+}
+
+const currentAlbumTitle = computed(() => {
+  return selectedAlbumIndex.value !== null ? albumInfo[selectedAlbumIndex.value].title : '';
+});
+
+const currentSongTitle = computed(() => {
+  if (selectedAlbumIndex.value === 0 && selectedSongIndex.value !== null) {
+    return moonTracks[selectedSongIndex.value];
+  }
+  return '';
+});
 
 // Alphabet filter for SONGS tab
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -1150,6 +1206,82 @@ const singleInfo = [
   height: 500px;
   object-fit: contain;
   border-radius: 8px;
+}
+
+/* Track grid under Moon Music detail */
+.track-grid {
+  width: 100%;
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 16px;
+  gap: 8px;
+}
+
+.track-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 80px;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.track-row:hover {
+  background: rgba(253, 95, 4, 0.25);
+  border-color: rgba(253, 95, 4, 0.6);
+  transform: translateY(-2px);
+}
+
+.track-col {
+  color: #fff;
+}
+
+.track-num {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.track-title {
+  font-weight: 700;
+}
+
+.track-lyrics {
+  text-align: right;
+  color: #fd5f04;
+  font-weight: 700;
+}
+
+/* Lyrics tab placeholder styling */
+.lyrics-tab {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.lyrics-header {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.lyrics-subheader {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.lyrics-placeholder {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
 }
 
 .singles-grid {
