@@ -2569,77 +2569,81 @@ const singleInfo = [
     max-width: 100%;
   }
 
-  .single-cell {
-    padding: 10px;
+  
+  .album-cell {
+    padding: 10px 8px;
   }
   
-  .single-date {
-    font-size: 0.6rem;
+  .album-title {
+    font-size: 0.85rem;
   }
   
-  .single-title {
+  .album-date {
     font-size: 0.7rem;
   }
-
-  .alphabet-filter {
-    position: relative;
-    top: 0;
-    left: 0;
-    margin-bottom: 15px;
-    gap: 3px;
+  
+  .album-detail-title {
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 0 10px;
+  }
+  
+  .album-detail-date {
+    font-size: 0.9rem;
+  }
+  
+  .track-row {
+    grid-template-columns: 35px 1fr 65px;
     padding: 8px 10px;
-    flex-wrap: wrap;
+    font-size: 0.85rem;
   }
-
-  .letter-button {
-    width: 26px;
-    height: 26px;
-    font-size: 0.7rem;
-  }
-
-  .songs-grid {
-    width: 100%;
-    padding: 80px 10px 10px;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .song-cell {
-    padding: 12px 15px;
-  }
-
-  .song-content {
-    gap: 10px;
-    grid-template-columns: 1fr;
-  }
-
-  .song-title-col,
-  .song-album-col {
+  
+  .track-num {
     font-size: 0.8rem;
   }
-
-  .song-album-col {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.85);
+  
+  .track-lyrics {
+    font-size: 0.8rem;
+  }
+  
+  .lyrics-header {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .lyrics-subheader {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .lyric-line {
+    font-size: 1rem;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .songs-grid {
+    margin-bottom: 70px;
+  }
+  
+  .song-cell {
+    padding: 12px 8px;
+  }
+  
+  .song-title-col, .song-album-col {
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
   .music-section {
-    padding: 15px 0;
-  }
-  
-  .tab-container {
-    gap: 6px;
-    padding: 8px;
+    padding: 10px 0 60px;
   }
   
   .tab-button {
-    padding: 6px 12px;
-  }
-  
-  .tab-text {
-    font-size: 0.7rem;
+    padding: 8px 4px;
+    font-size: 0.55rem;
   }
   
   .tab-circle {
@@ -2649,99 +2653,97 @@ const singleInfo = [
   
   .albums-grid {
     grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 8px;
-  }
-
-  .album-cell {
-    padding: 10px;
+    max-width: 300px;
+    margin: 0 auto;
+    padding-bottom: 60px;
   }
   
-  .album-date {
-    font-size: 0.6rem;
+  .album-cell {
+    padding: 12px;
+  }
+  
+  .album-detail-title {
+    font-size: 1.3rem;
+  }
+  
+  .track-grid {
+    width: 100%;
+    padding: 0 5px;
+  }
+  
+  .track-row {
+    grid-template-columns: 30px 1fr 60px;
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+  
+  .lyrics-header {
+    font-size: 1.3rem;
+  }
+  
+  .lyrics-subheader {
+    font-size: 0.85rem;
+  }
+  
+  .lyric-line {
+    font-size: 0.95rem;
+  }
+  
+  .songs-grid {
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 375px) {
+  .tab-button {
+    padding: 8px 2px;
+    font-size: 0.5rem;
+  }
+  
+  .track-row {
+    grid-template-columns: 25px 1fr 55px;
+    font-size: 0.75rem;
+    padding: 6px 4px;
+  }
+  
+  .track-lyrics {
+    font-size: 0.7rem;
   }
   
   .album-title {
     font-size: 0.8rem;
   }
   
-  .singles-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 80px 8px 8px;
-  }
-
-  .single-cell {
-    padding: 10px;
-  }
-  
-  .single-date {
-    font-size: 0.58rem;
-  }
-  
-  .single-title {
-    font-size: 0.68rem;
-  }
-
-  .alphabet-filter {
-    gap: 2px;
-    padding: 6px 8px;
-  }
-
-  .letter-button {
-    width: 24px;
-    height: 24px;
+  .album-date {
     font-size: 0.65rem;
   }
-
-  .songs-grid {
-    padding: 80px 8px 8px;
-    
+  
+  .lyrics-cover {
+    max-width: 200px;
   }
-
+  
+  .lyric-line {
+    font-size: 0.9rem;
+  }
+  
   .song-cell {
-    padding: 10px 12px;
+    padding: 10px 5px;
   }
-
-  .song-title-col {
-    font-size: 0.75rem;
-  }
-
-  .song-album-col {
-    font-size: 0.7rem;
+  
+  .song-title-col, .song-album-col {
+    font-size: 0.8rem;
   }
 }
 
-@media (max-width: 400px) {
-  .tab-button {
-    padding: 5px 10px;
-  }
+.single-cell {
+  padding: 10px;
+}
 
-  .tab-text {
-    font-size: 0.65rem;
-  }
+.single-date {
+  font-size: 0.6rem;
+}
 
-  .album-title {
-    font-size: 0.75rem;
-  }
-
-  .single-title {
-    font-size: 0.65rem;
-  }
-
-  .letter-button {
-    width: 22px;
-    height: 22px;
-    font-size: 0.6rem;
-  }
-
-  .song-title-col {
-    font-size: 0.7rem;
-  }
-
-  .song-album-col {
-    font-size: 0.65rem;
-  }
+.song-album-col {
+  font-size: 0.65rem;
 }
 </style>
-
