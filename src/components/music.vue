@@ -84,6 +84,24 @@
               <div class="track-col track-lyrics">Lyrics</div>
             </div>
           </div>
+
+          <!-- Everyday Life Track Grid: only for third album -->
+          <div v-if="selectedAlbumIndex === 2" class="track-grid">
+            <div 
+              v-for="(track, i) in everydayTracks" 
+              :key="i" 
+              class="track-row"
+              @click="openLyrics(i)"
+            >
+              <div class="track-col track-num">
+                {{ (i + 1).toString().padStart(2, '0') }}
+              </div>
+              <div class="track-col track-title">
+                {{ track }}
+              </div>
+              <div class="track-col track-lyrics">Lyrics</div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -652,6 +670,25 @@ const motsTracks = [
   'COLORATURA',
 ];
 
+// Everyday Life track list used in the 3-column grid for the third album
+const everydayTracks = [
+  'Church',
+  'Trouble In Town',
+  'BrokEn',
+  'Daddy',
+  'WOTW / POTP',
+  'Arabesque',
+  'When I Need a Friend',
+  'Guns',
+  'Orphans',
+  'Eko',
+  'Cry Cry Cry',
+  'Old Friends',
+  'بنی آدم',
+  'Champion of the World',
+  'Everyday Life'
+];
+
 function openLyrics(trackIndex) {
   selectedSongIndex.value = trackIndex;
   activeTab.value = 'LYRICS';
@@ -668,6 +705,9 @@ const currentSongTitle = computed(() => {
     }
     if (selectedAlbumIndex.value === 1) {
       return motsTracks[selectedSongIndex.value];
+    }
+    if (selectedAlbumIndex.value === 2) {
+      return everydayTracks[selectedSongIndex.value];
     }
   }
   return '';
@@ -1014,7 +1054,6 @@ const lyricsData = {
     ],
     6: [
       'I got this feeling and just what it is God only knows',
-      'I got this feeling and I think I’m seeing thunderbolts',
       'I got this feeling that in I’m turning into someone new',
       'I got this feeling that the ceiling is for bursting through',
       'I got this feeling and now nothing is frightening',
@@ -1444,16 +1483,27 @@ const lyricsData = {
       'Poets prophesy up in the blue',
       'Together that’s how we’ll make it through',
     ],
+    2: { // album index 2: Everyday Life
+      // Lyrics not available
+    },
   },
 };
 
 const currentSongLyrics = computed(() => {
-  const a = selectedAlbumIndex.value;
-  const s = selectedSongIndex.value;
-  if (a === null || s === null) return [];
-  const lines = lyricsData[a]?.[s] || [];
-  // Return each non-empty line as its own rendered line
-  return lines.filter(l => l.trim() !== '');
+  const albumIndex = selectedAlbumIndex.value;
+  const songIndex = selectedSongIndex.value;
+  
+  if (albumIndex === null || songIndex === null) return [];
+  
+  // Check if we have lyrics for this album and song
+  const albumData = lyricsData[albumIndex];
+  if (!albumData) return [];
+  
+  const lines = albumData[songIndex];
+  if (!lines) return [];
+  
+  // Return non-empty lines
+  return lines.filter(line => line.trim() !== '');
 });
 
 // Alphabet filter for SONGS tab
