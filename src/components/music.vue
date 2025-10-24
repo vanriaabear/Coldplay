@@ -66,6 +66,24 @@
               <div class="track-col track-lyrics">Lyrics</div>
             </div>
           </div>
+
+          <!-- Music of the Spheres Track Grid: only for second album -->
+          <div v-if="selectedAlbumIndex === 1" class="track-grid">
+            <div 
+              v-for="(track, i) in motsTracks" 
+              :key="i" 
+              class="track-row"
+              @click="openLyrics(i)"
+            >
+              <div class="track-col track-num">
+                {{ (i + 1).toString().padStart(2, '0') }}
+              </div>
+              <div class="track-col track-title">
+                {{ track }}
+              </div>
+              <div class="track-col track-lyrics">Lyrics</div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -622,6 +640,18 @@ const moonTracks = [
   'ONE WORLD',
 ];
 
+// Music Of The Spheres track list used in the 3-column grid for the second album
+const motsTracks = [
+  'HIGHER POWER',
+  'HUMANKIND',
+  'LET SOMEBODY GO',
+  'HUMAN HEART',
+  'PEOPLE OF THE PRIDE',
+  'BIUTYFUL',
+  'MY UNIVERSE',
+  'COLORATURA',
+];
+
 function openLyrics(trackIndex) {
   selectedSongIndex.value = trackIndex;
   activeTab.value = 'LYRICS';
@@ -632,8 +662,13 @@ const currentAlbumTitle = computed(() => {
 });
 
 const currentSongTitle = computed(() => {
-  if (selectedAlbumIndex.value === 0 && selectedSongIndex.value !== null) {
-    return moonTracks[selectedSongIndex.value];
+  if (selectedSongIndex.value !== null) {
+    if (selectedAlbumIndex.value === 0) {
+      return moonTracks[selectedSongIndex.value];
+    }
+    if (selectedAlbumIndex.value === 1) {
+      return motsTracks[selectedSongIndex.value];
+    }
   }
   return '';
 });
