@@ -1072,6 +1072,12 @@ const lyricsData = {
       'You got all my love',
       'You’ve got all my love',
     ],
+    9: [
+      'One world',
+      'Only one world',
+      'Only one',
+      'In the end it’s just love',
+    ],
   },
 };
 
