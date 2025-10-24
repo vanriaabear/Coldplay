@@ -85,7 +85,23 @@
             </div>
           </div>
 
-          <!-- Everyday Life Album - No content -->
+          <!-- Everyday Life Album Track Grid -->
+          <div v-if="selectedAlbumIndex === 2" class="track-grid">
+            <div 
+              v-for="(track, i) in everydayLifeTracks" 
+              :key="i" 
+              class="track-row"
+              @click="openLyrics(i)"
+            >
+              <div class="track-col track-num">
+                {{ (i + 1).toString().padStart(2, '0') }}
+              </div>
+              <div class="track-col track-title">
+                {{ track }}
+              </div>
+              <div class="track-col track-lyrics">Lyrics</div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -628,6 +644,25 @@ function openAlbumDetail(index) {
   activeTab.value = 'DETAIL';
 }
 
+// Everyday Life track list
+const everydayLifeTracks = [
+  'Church',
+  'Trouble In Town',
+  'BrokEn',
+  'Daddy',
+  'WOTW/POTP',
+  'Arabesque',
+  'When I Need A Friend',
+  'Guns',
+  'Orphans',
+  'Eko',
+  'Cry Cry Cry',
+  'Old Friends',
+  'بنی آدم',
+  'Champion Of The World',
+  'Everyday Life'
+];
+
 // Moon Music track list used in the 3-column grid for the first album
 const moonTracks = [
   'MOON MUSiC',
@@ -686,12 +721,10 @@ const currentSongTitle = computed(() => {
   if (selectedSongIndex.value !== null) {
     if (selectedAlbumIndex.value === 0) {
       return moonTracks[selectedSongIndex.value];
-    }
-    if (selectedAlbumIndex.value === 1) {
+    } else if (selectedAlbumIndex.value === 1) {
       return motsTracks[selectedSongIndex.value];
-    }
-    if (selectedAlbumIndex.value === 2) {
-      return '';
+    } else if (selectedAlbumIndex.value === 2) {
+      return everydayLifeTracks[selectedSongIndex.value];
     }
   }
   return '';
@@ -703,6 +736,34 @@ const currentAlbumDate = computed(() => {
 
 // Lyrics data: currently only for Moon Music track 01
 const lyricsData = {
+  2: { // album index 2: Everyday Life
+    0: [
+      'What can I tell you',
+      'When I\'m with you I\'m walking on air',
+      'Watching you sleeping there',
+      'What can\'t I get through',
+      'And when for everyone everywhere',
+      'You\'re answering every prayer',
+      'And when you\'re riding a wave',
+      'Oh won\'t you ride that wave to me',
+      'When you\'re setting your sail',
+      'Oh can I be your seventh sea',
+      'When you\'re riding a wave',
+      'When you\'re riding a wave',
+      'Cause when I\'m hurt, then I go to your church',
+      'Cause when I\'m hurt, then I go to your church',
+      'When you\'re riding a wave',
+      'Oh won\'t you ride that wave to me',
+      'When you\'re riding a wave',
+      'Oh Father God Almighty, why have you forsaken me?',
+      'Oh Father God Almighty',
+      'Freedom Oh God.',
+      'Love Oh God',
+      'Love Oh God',
+      'I worship in your church, baby, always',
+      'I worship in your church all the seven days, I praise and praise.'
+    ]
+  },
   0: { // album index 0: Moon Music
     0: [
       'Once upon a time',
