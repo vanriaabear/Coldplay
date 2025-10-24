@@ -85,23 +85,7 @@
             </div>
           </div>
 
-          <!-- Everyday Life Track Grid: only for third album -->
-          <div v-if="selectedAlbumIndex === 2" class="track-grid">
-            <div 
-              v-for="(track, i) in everydayTracks" 
-              :key="i" 
-              class="track-row"
-              @click="openLyrics(i)"
-            >
-              <div class="track-col track-num">
-                {{ (i + 1).toString().padStart(2, '0') }}
-              </div>
-              <div class="track-col track-title">
-                {{ track }}
-              </div>
-              <div class="track-col track-lyrics">Lyrics</div>
-            </div>
-          </div>
+          <!-- Everyday Life Album - No content -->
         </div>
       </div>
 
@@ -707,7 +691,7 @@ const currentSongTitle = computed(() => {
       return motsTracks[selectedSongIndex.value];
     }
     if (selectedAlbumIndex.value === 2) {
-      return everydayTracks[selectedSongIndex.value];
+      return '';
     }
   }
   return '';
@@ -1484,7 +1468,7 @@ const lyricsData = {
       'Together that’s how we’ll make it through',
     ],
     2: { // album index 2: Everyday Life
-      // Lyrics not available
+      // No lyrics available
     },
   },
 };
