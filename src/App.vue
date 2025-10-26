@@ -2,6 +2,7 @@
 import LandingPage from './components/LandingPage.vue'
 import About from './components/about.vue'
 import Music from './components/music.vue'
+import Concert from './components/concert.vue'
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import Music from './components/music.vue'
     <LandingPage />
     <About />
     <Music />
+    <Concert />
   </div>
 </template>
 
