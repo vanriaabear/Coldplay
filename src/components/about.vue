@@ -2,11 +2,6 @@
   <header class="header">
     <img src="/images/sun.jpg" alt="Header sun" class="header-img" />
     <span class="header-title">COLDPLAY</span>
-    <nav class="header-nav">
-      <button class="header-btn">About the band</button>
-      <button class="header-btn">Music</button>
-      <button class="header-btn">Concert history</button>
-    </nav>
   </header>
 
   <main class="background-section">
